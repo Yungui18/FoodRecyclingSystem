@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="850dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_button_reset_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_now_putting_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:includeFontPadding="false"
+            android:text="@string/now_putting_weight"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_now_kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="114dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12.5kg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="850dp"
+        android:layout_height="293dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_button_reset_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_confirm"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_confirm"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/bg_button_confirm_press"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="28sp" />
+        </me.grantland.widget.AutofitLayout>
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_tv1_monthly_total"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="21dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/tv1_monthly_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/monthly_total"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            />
+        </me.grantland.widget.AutofitLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="2.5dp"
+            android:layout_height="0dp"
+
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/blue_5BB8E8"
+            app:layout_constraintBottom_toTopOf="@+id/auto_fit_layout_confirm"
+            app:layout_constraintStart_toEndOf="@+id/auto_fit_layout_tv1_monthly_total"
+            app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_tv1_monthly_total" />
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_tv2_daily_total"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_tv1_monthly_total"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_tv1_monthly_total" >
+        <TextView
+            android:id="@+id/tv2_daily_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/daily_total"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            android:textStyle="bold"
+           />
+        </me.grantland.widget.AutofitLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="2.5dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/blue_5BB8E8"
+            app:layout_constraintBottom_toTopOf="@+id/auto_fit_layout_confirm"
+            app:layout_constraintStart_toEndOf="@+id/auto_fit_layout_tv2_daily_total"
+            app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_tv2_daily_total" />
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_tv3_daily_time"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_tv1_monthly_total"
+            app:layout_constraintStart_toEndOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_tv1_monthly_total" >
+
+        <TextView
+            android:id="@+id/tv3_daily_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/daily_times"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            android:textStyle="bold"
+           />
+        </me.grantland.widget.AutofitLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="2.5dp"
+            android:layout_marginBottom="8dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/blue_5BB8E8"
+            app:layout_constraintBottom_toTopOf="@+id/auto_fit_layout_confirm"
+            app:layout_constraintStart_toEndOf="@+id/auto_fit_layout_tv3_daily_time"
+            app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_tv3_daily_time" />
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_tv4_time_weight"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_tv1_monthly_total"
+            app:layout_constraintStart_toEndOf="@+id/view3"
+            app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_tv1_monthly_total" >
+        <TextView
+            android:id="@+id/tv4_time_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/time_weight"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            android:textStyle="bold"
+           />
+        </me.grantland.widget.AutofitLayout>
+        <TextView
+            android:id="@+id/tv1_monthly_total_kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_tv1_monthly_total"
+            app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_tv1_monthly_total"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:text="58KG" />
+
+        <TextView
+            android:id="@+id/tv2_daily_total_kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_tv2_daily_total"
+            app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_tv2_daily_total"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:text="58KG" />
+
+        <TextView
+            android:id="@+id/tv3_daily_times_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_tv3_daily_time"
+            app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_tv3_daily_time"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:text="3次" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rl_time_weitht"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/auto_fit_layout_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_tv4_time_weight"
+            app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_tv3_daily_time"
+            tools:listitem="@layout/item_rl_time_weight" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="2.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/blue_5BB8E8"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/rl_time_weitht"
+            app:layout_constraintStart_toStartOf="@id/auto_fit_layout_tv1_monthly_total"
+            app:layout_constraintTop_toBottomOf="@id/auto_fit_layout_tv1_monthly_total" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

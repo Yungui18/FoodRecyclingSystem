@@ -1,0 +1,1199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:lines="1"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="27sp" />
+    </me.grantland.widget.AutofitLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/tv1_inlet_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/inlet_motor"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv11_inlet_timeout_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="投 入 口 设 置"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv1_inlet_motor"
+                app:layout_constraintTop_toBottomOf="@+id/tv1_inlet_motor" />
+
+            <TextView
+                android:id="@+id/tv2_weighing_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/weighing_motor"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv11_inlet_timeout_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv11_inlet_timeout_setting" />
+
+            <TextView
+                android:id="@+id/tv3_stir_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/stir_motor"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv2_weighing_motor"
+                app:layout_constraintTop_toBottomOf="@+id/tv2_weighing_motor" />
+
+            <TextView
+                android:id="@+id/tv4_output_motor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/output_motor"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv3_stir_motor"
+                app:layout_constraintTop_toBottomOf="@+id/tv3_stir_motor" />
+
+            <TextView
+                android:id="@+id/tv5_fan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/fan"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv4_output_motor"
+                app:layout_constraintTop_toBottomOf="@+id/tv4_output_motor" />
+
+          <!--  <TextView
+                android:id="@+id/tv12_fan_gear_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="风 扇 湿 度 设 置"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv5_fan"
+                app:layout_constraintTop_toBottomOf="@+id/tv5_fan" />-->
+
+
+            <TextView
+                android:id="@+id/tv7_zero_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/zero_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv5_fan"
+                app:layout_constraintTop_toBottomOf="@+id/tv5_fan" />
+
+            <TextView
+                android:id="@+id/tv8_heater_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/heater_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv7_zero_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv7_zero_setting" />
+
+            <TextView
+                android:id="@+id/tv8_heater_setting2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/heater_setting2"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv8_heater_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv8_heater_setting" />
+
+
+            <TextView
+                android:id="@+id/tv9_dehumidification_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/dehumidification_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv8_heater_setting2"
+                app:layout_constraintTop_toBottomOf="@+id/tv8_heater_setting2" />
+
+            <TextView
+                android:id="@+id/tv6_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/lamplight"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv9_dehumidification_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv9_dehumidification_setting" />
+
+            <TextView
+                android:id="@+id/tv10_light2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/led2"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv6_light"
+                app:layout_constraintTop_toBottomOf="@+id/tv6_light" />
+
+
+            <TextView
+                android:id="@+id/tv11_lighting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/lighting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv10_light2"
+                app:layout_constraintTop_toBottomOf="@+id/tv10_light2" />
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_1_inlet_stop"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="95dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv1_inlet_motor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv1_inlet_motor">
+
+                <Button
+                    android:id="@+id/btn1_inlet_stop"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_1_inlet_close"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_1_inlet_stop"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_1_inlet_stop"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_1_inlet_stop">
+
+                <Button
+                    android:id="@+id/btn1_inlet_close"
+                    style="@style/admin_button"
+                    android:text="@string/close_door" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_1_inlet_open"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_1_inlet_close"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_1_inlet_close"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_1_inlet_close">
+
+                <Button
+                    android:id="@+id/btn1_inlet_open"
+                    style="@style/admin_button"
+                    android:text="@string/open" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <TextView
+                android:id="@+id/tv11_inlet_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:includeFontPadding="false"
+                android:text="超时时间:"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_inlet_timeout_setting"
+                app:layout_constraintStart_toEndOf="@+id/tv11_inlet_timeout_setting"
+                app:layout_constraintTop_toTopOf="@+id/tv11_inlet_timeout_setting" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl11_inlet_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_inlet_timeout"
+                app:layout_constraintStart_toEndOf="@+id/tv11_inlet_timeout"
+                app:layout_constraintTop_toTopOf="@+id/tv11_inlet_timeout">
+
+                <TextView
+                    android:id="@+id/tv11_inlet_timeout_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2S" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv11_inlet_timeout_num"
+                    app:layout_constraintStart_toEndOf="@id/tv11_inlet_timeout_num"
+                    app:layout_constraintTop_toTopOf="@id/tv11_inlet_timeout_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv11_inlet_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:includeFontPadding="false"
+                android:text="低速电压"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cl11_inlet_timeout"
+                app:layout_constraintStart_toEndOf="@id/cl11_inlet_timeout"
+                app:layout_constraintTop_toTopOf="@+id/cl11_inlet_timeout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl11_inlet_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_inlet_voltage"
+                app:layout_constraintStart_toEndOf="@+id/tv11_inlet_voltage"
+                app:layout_constraintTop_toTopOf="@+id/tv11_inlet_voltage">
+
+                <TextView
+                    android:id="@+id/tv11_inlet_voltage_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="12" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv11_inlet_voltage_num"
+                    app:layout_constraintStart_toEndOf="@id/tv11_inlet_voltage_num"
+                    app:layout_constraintTop_toTopOf="@id/tv11_inlet_voltage_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_2_weighing_stop"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="185dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv2_weighing_motor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv2_weighing_motor">
+
+                <Button
+                    android:id="@+id/btn2_weighing_stop"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_2_weighing_close"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_2_weighing_stop"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_2_weighing_stop"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_2_weighing_stop">
+
+                <Button
+                    android:id="@+id/btn2_weighing_close"
+                    style="@style/admin_button"
+                    android:text="@string/close_door" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_2_weighing_open"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_2_weighing_close"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_2_weighing_close"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_2_weighing_close">
+
+                <Button
+                    android:id="@+id/btn2_weighing_open"
+                    style="@style/admin_button"
+                    android:text="@string/open_door" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_3_stir_stop"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv3_stir_motor"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_1_inlet_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv3_stir_motor">
+
+                <Button
+                    android:id="@+id/btn3_stir_stop"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_3_stir_reverses"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_3_stir_stop"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_3_stir_stop"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_3_stir_stop">
+
+                <Button
+                    android:id="@+id/btn3_stir_reverses"
+                    style="@style/admin_button"
+                    android:text="@string/reverses" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_3_stir_forward"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_3_stir_reverses"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_3_stir_reverses"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_3_stir_reverses">
+
+                <Button
+                    android:id="@+id/btn3_stir_forward"
+                    style="@style/admin_button"
+                    android:text="@string/forward" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_4_output_stop"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="185dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv4_output_motor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv4_output_motor">
+
+                <Button
+                    android:id="@+id/btn4_output_stop"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_4_output_reverses"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_4_output_stop"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_4_output_stop"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_4_output_stop">
+
+                <Button
+                    android:id="@+id/btn4_output_reverses"
+                    style="@style/admin_button"
+                    android:text="@string/reverses" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_4_output_forward"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_4_output_reverses"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_4_output_reverses"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_4_output_reverses">
+
+                <Button
+                    android:id="@+id/btn4_output_forward"
+                    style="@style/admin_button"
+                    android:text="@string/forward" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_5_fan_stop"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv5_fan"
+                app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_3_stir_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv5_fan">
+
+                <Button
+                    android:id="@+id/btn5_fan_stop"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_5_fan_automatic"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_5_fan_stop"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_5_fan_stop"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_5_fan_stop">
+
+                <Button
+                    android:id="@+id/btn5_fan_automatic"
+                    style="@style/admin_button"
+                    android:text="@string/automatic" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_5_fan_manual3"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_5_fan_automatic"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_5_fan_automatic"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_5_fan_automatic">
+
+                <Button
+                    android:id="@+id/btn5_fan_manual3"
+                    style="@style/admin_button"
+                    android:text="@string/manual" />
+            </me.grantland.widget.AutofitLayout>
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_5_fan_manual2"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_5_fan_manual3"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_5_fan_manual3"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_5_fan_manual3">
+
+                <Button
+                    android:id="@+id/btn5_fan_manual2"
+                    style="@style/admin_button"
+                    android:visibility="gone"
+                    android:text="@string/manual2" />
+            </me.grantland.widget.AutofitLayout>
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_5_fan_manual1"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_5_fan_manual2"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_5_fan_manual2"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_5_fan_manual2">
+
+                <Button
+                    android:id="@+id/btn5_fan_manual1"
+                    android:visibility="gone"
+                    style="@style/admin_button"
+                    android:text="@string/manual1" />
+            </me.grantland.widget.AutofitLayout>
+
+<!--
+            <TextView
+                android:id="@+id/tv12_fan_gear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="档位:"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv12_fan_gear_setting"
+                app:layout_constraintStart_toStartOf="@+id/tv11_inlet_timeout"
+                app:layout_constraintTop_toTopOf="@+id/tv12_fan_gear_setting" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl12_fan_gear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv12_fan_gear"
+                app:layout_constraintStart_toEndOf="@+id/tv12_fan_gear"
+                app:layout_constraintTop_toTopOf="@+id/tv12_fan_gear">
+
+                <TextView
+                    android:id="@+id/tv12_fan_gear_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+                <ImageView
+                    android:id="@+id/iv_fan_gear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv12_fan_gear_num"
+                    app:layout_constraintStart_toEndOf="@id/tv12_fan_gear_num"
+                    app:layout_constraintTop_toTopOf="@id/tv12_fan_gear_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv12_fan_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:includeFontPadding="false"
+                android:text="湿度"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cl12_fan_gear"
+                app:layout_constraintStart_toEndOf="@id/cl12_fan_gear"
+                app:layout_constraintTop_toTopOf="@+id/cl12_fan_gear" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl12_fan_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv12_fan_humidity"
+                app:layout_constraintStart_toEndOf="@+id/tv12_fan_humidity"
+                app:layout_constraintTop_toTopOf="@+id/tv12_fan_humidity">
+
+                <TextView
+                    android:id="@+id/tv12_fan_humidity_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="50%" />
+
+                <ImageView
+                    android:id="@+id/iv_12_fan_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv12_fan_humidity_num"
+                    app:layout_constraintStart_toEndOf="@id/tv12_fan_humidity_num"
+                    app:layout_constraintTop_toTopOf="@id/tv12_fan_humidity_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv12_fan_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:includeFontPadding="false"
+                android:text="电压"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cl12_fan_humidity"
+                app:layout_constraintStart_toEndOf="@id/cl12_fan_humidity"
+                app:layout_constraintTop_toTopOf="@+id/cl12_fan_humidity" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl12_fan_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv12_fan_voltage"
+                app:layout_constraintStart_toEndOf="@+id/tv12_fan_voltage"
+                app:layout_constraintTop_toTopOf="@+id/tv12_fan_voltage">
+
+                <TextView
+                    android:id="@+id/tv12_fan_voltage_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="5V" />
+
+                <ImageView
+                    android:id="@+id/iv_12_fan_voltage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv12_fan_voltage_num"
+                    app:layout_constraintStart_toEndOf="@id/tv12_fan_voltage_num"
+                    app:layout_constraintTop_toTopOf="@id/tv12_fan_voltage_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_7_zero"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv7_zero_setting"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_5_fan_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv7_zero_setting">
+
+                <Button
+                    android:id="@+id/btn7_zero"
+                    style="@style/admin_button"
+                    android:text="@string/zero" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_7_net_weight"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_7_zero"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_7_zero"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_7_zero">
+
+                <Button
+                    android:id="@+id/btn7_net_weight"
+                    style="@style/admin_button"
+                    android:text="@string/net_weight" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_8_heater_stop"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv8_heater_setting"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_7_zero"
+                app:layout_constraintTop_toTopOf="@+id/tv8_heater_setting">
+
+                <Button
+                    android:id="@+id/btn8_heater_stop"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_8_heater_automatic"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_8_heater_stop"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_8_heater_stop"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_8_heater_stop">
+
+                <Button
+                    android:id="@+id/btn8_heater_automatic"
+                    style="@style/admin_button"
+                    android:text="@string/automatic" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_8_heater_manual"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_8_heater_automatic"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_8_heater_automatic"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_8_heater_automatic">
+
+                <Button
+                    android:id="@+id/btn8_heater_manual"
+                    style="@style/admin_button"
+                    android:visibility="gone"
+                    android:text="@string/heater_manual" />
+            </me.grantland.widget.AutofitLayout>
+
+
+
+
+
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_8_heater_stop2"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv8_heater_setting2"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_8_heater_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv8_heater_setting2">
+
+                <Button
+                    android:id="@+id/btn8_heater_stop2"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_8_heater_automatic2"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_8_heater_stop2"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_8_heater_stop2"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_8_heater_stop2">
+
+                <Button
+                    android:id="@+id/btn8_heater_automatic2"
+                    style="@style/admin_button"
+                    android:text="@string/automatic" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_8_heater_manual2"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_8_heater_automatic2"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_8_heater_automatic2"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_8_heater_automatic2">
+
+                <Button
+                    android:id="@+id/btn8_heater_manual2"
+                    style="@style/admin_button"
+                    android:visibility="gone"
+                    android:text="@string/heater_manual" />
+            </me.grantland.widget.AutofitLayout>
+
+
+
+
+
+
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_9_dehumidification_stop"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv9_dehumidification_setting"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_8_heater_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv9_dehumidification_setting">
+
+                <Button
+                    android:id="@+id/btn9_dehumidification_stop"
+                    style="@style/admin_button"
+                    android:text="@string/stop" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_9_dehumidification_automatic"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_9_dehumidification_stop"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_9_dehumidification_stop"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_9_dehumidification_stop">
+
+                <Button
+                    android:id="@+id/btn9_dehumidification_automatic"
+                    style="@style/admin_button"
+                    android:text="@string/automatic" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_9_dehumidification_manual"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_9_dehumidification_automatic"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_9_dehumidification_automatic"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_9_dehumidification_automatic">
+
+                <Button
+                    android:id="@+id/btn9_dehumidification_manual"
+                    style="@style/admin_button"
+                    android:text="@string/heater_manual" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_white"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv6_light"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_8_heater_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv6_light">
+
+                <Button
+                    android:id="@+id/btn6_light_white"
+                    style="@style/admin_button2"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/white" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_purple"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="12.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_6_light_white"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_6_light_white"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_6_light_white">
+
+                <Button
+                    android:id="@+id/btn6_light_purple"
+                    style="@style/admin_button2"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/purple" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_cyan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="12.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_6_light_purple"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_6_light_purple"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_6_light_purple">
+
+                <Button
+                    android:id="@+id/btn6_light_cyan"
+                    style="@style/admin_button2"
+                    android:text="@string/cyan" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_off"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_6_light_cyan"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_6_light_cyan"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_6_light_cyan">
+
+                <Button
+                    android:id="@+id/btn6_led1_off"
+                    style="@style/admin_button"
+                    android:text="@string/close" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_yellow"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_6_light_off"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_6_light_off"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_6_light_off">
+
+                <Button
+                    android:id="@+id/btn6_led1_yellow"
+                    style="@style/admin_button"
+                    android:text="@string/yellow" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_blue"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_6_light_yellow"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_6_light_yellow"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_6_light_yellow">
+
+                <Button
+                    android:id="@+id/btn6_light_blue"
+                    style="@style/admin_button2"
+                    android:text="@string/blue" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_green"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_6_light_blue"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_6_light_blue"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_6_light_blue">
+
+                <Button
+                    android:id="@+id/btn6_led1_green"
+                    style="@style/admin_button"
+                    android:text="@string/green" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_6_light_red"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_6_light_green"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_6_light_green"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_6_light_green">
+
+                <Button
+                    android:id="@+id/btn6_led1_red"
+                    style="@style/admin_button"
+                    android:text="@string/red" />
+            </me.grantland.widget.AutofitLayout>
+
+
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_10_light2_off"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv10_light2"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_8_heater_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv10_light2">
+
+                <Button
+                    android:id="@+id/btn10_led2_off"
+                    style="@style/admin_button"
+                    android:text="@string/close" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_10_light2_yellow"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_10_light2_off"
+                app:layout_constraintEnd_toStartOf="@id/auto_fit_layout_10_light2_off"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_10_light2_off">
+
+                <Button
+                    android:id="@+id/btn10_led2_yellow"
+                    style="@style/admin_button"
+                    android:text="@string/yellow" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_10_light2_green"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_10_light2_yellow"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_10_light2_yellow"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_10_light2_yellow">
+
+                <Button
+                    android:id="@+id/btn10_led2_green"
+                    style="@style/admin_button"
+                    android:text="@string/green" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_10_light2_red"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_10_light2_green"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_10_light2_green"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_10_light2_green">
+
+                <Button
+                    android:id="@+id/btn10_led2_red"
+                    style="@style/admin_button"
+                    android:text="@string/red" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_11_lighting_close"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_lighting"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_9_dehumidification_stop"
+                app:layout_constraintTop_toTopOf="@+id/tv11_lighting">
+
+                <Button
+                    android:id="@+id/btn11_lighting_close"
+                    style="@style/admin_button"
+                    android:text="@string/close" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_11_lighting_open"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="17.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_11_lighting_close"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_11_lighting_close"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_11_lighting_close">
+
+                <Button
+                    android:id="@+id/btn11_lighting_open"
+                    style="@style/admin_button"
+                    android:text="@string/open" />
+            </me.grantland.widget.AutofitLayout>
+
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tv11_inlet_timeout_setting, tv11_inlet_timeout,
+                cl11_inlet_timeout,tv11_inlet_voltage, cl11_inlet_voltage,
+                auto_fit_layout_6_light_cyan,
+                auto_fit_layout_6_light_blue,auto_fit_layout_6_light_purple,
+                auto_fit_layout_6_light_white,tv2_weighing_motor,tv4_output_motor,
+                auto_fit_layout_2_weighing_stop,auto_fit_layout_4_output_stop,
+                auto_fit_layout_4_output_reverses,auto_fit_layout_4_output_forward,
+                auto_fit_layout_2_weighing_close,auto_fit_layout_2_weighing_open" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_netweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_back"
+        app:layout_constraintStart_toEndOf="@+id/auto_fit_layout_back"
+        app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_back" />
+
+    <TextView
+        android:id="@+id/tv_grossweight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_netweight"
+        app:layout_constraintStart_toEndOf="@+id/tv_netweight"
+        app:layout_constraintTop_toTopOf="@+id/tv_netweight" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

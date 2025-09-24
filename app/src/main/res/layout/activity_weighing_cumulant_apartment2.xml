@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/activity_common" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_main_login"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="50dp"
+        android:background="@mipmap/frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/notosanskrmedium"
+            android:includeFontPadding="false"
+            android:text="@string/complete"
+            android:textColor="@color/black"
+            android:textSize="65sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="107dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@id/view_1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1"
+            app:srcCompat="@mipmap/weight1" />
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="475dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/iv1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv1" />
+
+        <TextView
+            android:id="@+id/tv_inlet_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inlet_weight_this"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toTopOf="@+id/view_1"
+            app:layout_constraintStart_toStartOf="@+id/view_1" />
+
+        <TextView
+            android:id="@+id/tv_weighing_this_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_inlet_1"
+            app:layout_constraintStart_toEndOf="@id/tv_inlet_1"
+            app:layout_constraintTop_toTopOf="@id/tv_inlet_1"
+            tools:text="88" />
+
+
+        <ImageView
+            android:id="@+id/iv2"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@id/view_2"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv1"
+            app:srcCompat="@mipmap/weight2" />
+
+        <View
+            android:id="@+id/view_2"
+            android:layout_width="475dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/iv2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv2" />
+
+        <TextView
+            android:id="@+id/tv_inlet_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weigh_cumulant"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toTopOf="@+id/view_2"
+            app:layout_constraintStart_toStartOf="@+id/view_2" />
+
+        <TextView
+            android:id="@+id/tv_weighting_cumulant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_inlet_2"
+            app:layout_constraintStart_toEndOf="@id/tv_inlet_2"
+            app:layout_constraintTop_toTopOf="@id/tv_inlet_2"
+            tools:text="88" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_weighting_cumulant"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tv_weighting_cumulant,view_2,iv2,tv_inlet_2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  <!--  <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="230dp"
+        android:background="@drawable/bg_button_reset_normal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_tv_weighing_this_time"
+            android:layout_width="450dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_weighing_this_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:maxLines="1"
+                android:text="@string/this_time_plate_weighing"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </me.grantland.widget.AutofitLayout>
+
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_tv_weighing_cumulant"
+            android:layout_width="450dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_tv_weighing_this_time">
+
+            <TextView
+                android:id="@+id/tv_weighting_cumulant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:maxLines="1"
+                android:text="@string/monthly_cumulative_placement"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="40sp"
+                android:textStyle="bold"
+
+                />
+        </me.grantland.widget.AutofitLayout>
+
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_back"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_confirm"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="130dp"
+                android:layout_height="70dp"
+                android:background="@drawable/bg_button_confirm_press"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="28sp" />
+        </me.grantland.widget.AutofitLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <TextView
+        android:id="@+id/tv_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/countdown"
+        android:textColor="@color/green_304129"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

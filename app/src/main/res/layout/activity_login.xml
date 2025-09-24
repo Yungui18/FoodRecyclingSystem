@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <!-- <Button
+         android:id="@+id/btn_start"
+         style="@style/number_button"
+         android:layout_width="250dp"
+         android:layout_height="250dp"
+         android:text="@string/start"
+         android:textSize="60sp"
+         android:visibility="gone"
+         app:layout_constraintBottom_toTopOf="@+id/iv_bottom"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.7" />
+ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_login"
+        android:layout_width="700dp"
+        android:layout_marginStart="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_login"
+        android:visibility="visible"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26999998">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_login_card"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/bg_login2"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/login_pic_card3" />
+
+            <EditText
+                android:id="@+id/et_card"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="3dp"
+                android:background="@null"
+                android:focusable="false"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:gravity="center"
+                android:hint="@string/card_id"
+                android:includeFontPadding="false"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="23sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_card"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_login_name"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="13.5dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/bg_login2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_login_card">
+
+            <ImageView
+                android:id="@+id/iv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/login_pic_name" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="3dp"
+                android:background="@null"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:gravity="center"
+                android:hint="@string/input_user_id"
+                android:includeFontPadding="false"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="23sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_name"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_login_pw"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="13.5dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/bg_login2"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_login_name">
+
+            <ImageView
+                android:id="@+id/iv_pw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/login_pic_pw" />
+
+            <EditText
+                android:id="@+id/et_pw"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="3dp"
+                android:background="@null"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:gravity="center"
+                android:hint="@string/input_pw"
+                android:includeFontPadding="false"
+                android:inputType="numberPassword"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="23sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_pw"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_login_input"
+            android:layout_width="0dp"
+            android:layout_height="210dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/bg_login2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_login_pw">
+
+            <Button
+                android:id="@+id/btn_one"
+                style="@style/number_button"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/number_one"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_two"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_two"
+                app:layout_constraintBottom_toBottomOf="@id/btn_one"
+                app:layout_constraintStart_toEndOf="@id/btn_one"
+                app:layout_constraintTop_toTopOf="@id/btn_one" />
+
+            <Button
+                android:id="@+id/btn_three"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_three"
+                app:layout_constraintBottom_toBottomOf="@id/btn_two"
+                app:layout_constraintStart_toEndOf="@id/btn_two"
+                app:layout_constraintTop_toTopOf="@id/btn_two" />
+
+            <Button
+                android:id="@+id/btn_four"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_four"
+                app:layout_constraintBottom_toBottomOf="@id/btn_three"
+                app:layout_constraintStart_toEndOf="@id/btn_three"
+                app:layout_constraintTop_toTopOf="@id/btn_three" />
+
+            <Button
+                android:id="@+id/btn_five"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_five"
+                app:layout_constraintBottom_toBottomOf="@id/btn_four"
+                app:layout_constraintStart_toEndOf="@id/btn_four"
+                app:layout_constraintTop_toTopOf="@id/btn_four" />
+
+            <Button
+                android:id="@+id/btn_six"
+                style="@style/number_button"
+                android:layout_marginBottom="12dp"
+                android:text="@string/number_six"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn_one"
+                app:layout_constraintStart_toStartOf="@id/btn_one"
+                app:layout_constraintTop_toBottomOf="@id/btn_one"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/btn_seven"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_seven"
+                app:layout_constraintBottom_toBottomOf="@id/btn_six"
+                app:layout_constraintStart_toEndOf="@id/btn_six"
+                app:layout_constraintTop_toTopOf="@id/btn_six" />
+
+            <Button
+                android:id="@+id/btn_eight"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_eight"
+                app:layout_constraintBottom_toBottomOf="@id/btn_seven"
+                app:layout_constraintStart_toEndOf="@id/btn_seven"
+                app:layout_constraintTop_toTopOf="@id/btn_seven" />
+
+            <Button
+                android:id="@+id/btn_nine"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_nine"
+                app:layout_constraintBottom_toBottomOf="@id/btn_eight"
+                app:layout_constraintStart_toEndOf="@id/btn_eight"
+                app:layout_constraintTop_toTopOf="@id/btn_eight" />
+
+            <Button
+                android:id="@+id/btn_zero"
+                style="@style/number_button"
+                android:layout_marginStart="23dp"
+                android:text="@string/number_zero"
+                app:layout_constraintBottom_toBottomOf="@id/btn_nine"
+                app:layout_constraintStart_toEndOf="@id/btn_nine"
+                app:layout_constraintTop_toTopOf="@id/btn_nine" />
+
+            <ImageButton
+                android:id="@+id/btn_delete"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="60dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_button_reset_normal"
+                android:contentDescription="@null"
+                android:src="@mipmap/login_delete"
+                app:layout_constraintBottom_toTopOf="@+id/btn_zero"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_five" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_login_input">
+
+            <Button
+                android:id="@+id/btn_confirm"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_button_click_20dp_white_blue"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@drawable/bg_text_click_blue_white"
+                android:textSize="30sp" />
+        </me.grantland.widget.AutofitLayout>
+
+        <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="76dp"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/btn_reset"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_button_click_20dp_white_blue"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textColor="@drawable/bg_text_click_blue_white"
+                android:textSize="30sp" />
+        </me.grantland.widget.AutofitLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <!-- <TextClock
+          android:id="@+id/text_clock"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:layout_marginStart="30dp"
+          android:textColor="@color/blue_5BB8E8"
+          android:textStyle="bold"
+          android:format24Hour="@string/time_format"
+          android:gravity="center_horizontal"
+          app:layout_constraintEnd_toEndOf="@id/cl_login"
+          app:layout_constraintStart_toStartOf="@id/cl_login"
+          app:layout_constraintTop_toTopOf="parent" />-->
+
+    <TextView
+        android:id="@+id/tv_daily_inlet_weight"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_5BB8E8"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_daily_inlet_weight_title"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_daily_inlet_weight_title"
+        app:layout_constraintTop_toTopOf="@id/tv_daily_inlet_weight_title"
+        tools:text="12KG" />
+
+    <TextView
+        android:id="@+id/tv_daily_inlet_weight_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/daily_inlet_weight"
+        android:textColor="@color/blue_5BB8E8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login_enter_power_saving" />
+
+    <TextView
+        android:id="@+id/tv_24h_inlet_total_weight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:textColor="@color/blue_5BB8E8"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_24h_inlet_total_weight_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_24h_inlet_total_weight_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_24h_inlet_total_weight_title"
+        tools:text="20.6KG" />
+
+    <TextView
+        android:id="@+id/tv_24h_inlet_total_weight_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_weight_24h"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/blue_5BB8E8"
+        app:layout_constraintStart_toStartOf="@+id/tv_daily_inlet_weight_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_daily_inlet_weight_title"/>
+
+    <TextView
+        android:id="@+id/tv_24h_inlet_remaining_weight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:textColor="@color/blue_5BB8E8"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_24h_inlet_remaining_weight_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_24h_inlet_remaining_weight_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_24h_inlet_remaining_weight_title"
+        tools:text="20.8KG" />
+
+    <TextView
+        android:id="@+id/tv_24h_inlet_remaining_weight_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/remaining_weight_24h"
+        android:textColor="@color/blue_5BB8E8"
+        app:layout_constraintStart_toStartOf="@+id/tv_24h_inlet_total_weight_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_24h_inlet_total_weight_title" />
+
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="27sp"
+            android:visibility="gone" />
+    </me.grantland.widget.AutofitLayout>
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_card_binding"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_card_binding"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/card_binding"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="visible" />
+    </me.grantland.widget.AutofitLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="tv_24h_inlet_total_weight,auto_fit_layout_card_binding,cl_login,tv_daily_inlet_weight_title,tv_24h_inlet_total_weight_title,tv_24h_inlet_remaining_weight,tv_24h_inlet_remaining_weight_title,auto_fit_layout_back,tv_daily_inlet_weight" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_login_none"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/iv_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_none_login_daily_inlet_weight_title"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:text="@string/daily_inlet_weight2"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_none_login_24h_inlet_total_weight_title"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_none_login_daily_inlet_weight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="70sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_none_login_daily_inlet_weight_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_none_login_daily_inlet_weight_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_none_login_daily_inlet_weight_title"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="12" />
+
+        <TextView
+            android:id="@+id/tv_none_login_24h_inlet_total_weight_title"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:text="@string/total_weight_24h2"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_none_login_daily_inlet_weight_title"
+            app:layout_constraintEnd_toStartOf="@+id/tv_none_login_24h_inlet_remaining_weight_title"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_none_login_daily_inlet_weight_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_none_login_daily_inlet_weight_title" />
+
+        <TextView
+            android:id="@+id/tv_none_login_24h_inlet_total_weight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="70sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_none_login_daily_inlet_weight"
+            app:layout_constraintEnd_toEndOf="@+id/tv_none_login_24h_inlet_total_weight_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_none_login_24h_inlet_total_weight_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_none_login_daily_inlet_weight"
+            tools:text="20.6" />
+
+        <TextView
+            android:id="@+id/tv_none_login_24h_inlet_remaining_weight_title"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="70dp"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:text="@string/remaining_weight_24h2"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="27sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_none_login_24h_inlet_total_weight_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_none_login_24h_inlet_total_weight_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_none_login_24h_inlet_total_weight_title"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_none_login_24h_inlet_remaining_weight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="80sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_none_login_24h_inlet_total_weight"
+            app:layout_constraintEnd_toEndOf="@+id/tv_none_login_24h_inlet_remaining_weight_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_none_login_24h_inlet_remaining_weight_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_none_login_24h_inlet_total_weight"
+            tools:text="70.8" />
+
+
+        <TextView
+            android:id="@+id/tv_none_login_unit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="KG"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_none_login_daily_inlet_weight"
+            app:layout_constraintEnd_toStartOf="@+id/tv_none_login_24h_inlet_total_weight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_none_login_daily_inlet_weight" />
+
+        <TextView
+            android:id="@+id/tv_none_login_unit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="KG"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_none_login_24h_inlet_total_weight"
+            app:layout_constraintEnd_toStartOf="@+id/tv_none_login_24h_inlet_remaining_weight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_none_login_24h_inlet_total_weight" />
+
+        <TextView
+            android:id="@+id/tv_none_login_unit3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="KG"
+            android:textColor="@color/blue_5BB8E8"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_none_login_24h_inlet_remaining_weight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_none_login_24h_inlet_remaining_weight" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_none_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="tv_none_login_daily_inlet_weight_title,tv_none_login_24h_inlet_total_weight,tv_none_login_24h_inlet_total_weight_title,tv_none_login_24h_inlet_remaining_weight,tv_none_login_24h_inlet_remaining_weight_title,tv_none_login_daily_inlet_weight,tv_none_login_unit1,tv_none_login_unit2,tv_none_login_unit3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_login_power_saving_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="power saving"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/iv_bottom"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_login_enter_power_saving"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_button_confirm_press"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        android:text="power saving"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_back"
+        app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_back"
+        app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_back" />
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

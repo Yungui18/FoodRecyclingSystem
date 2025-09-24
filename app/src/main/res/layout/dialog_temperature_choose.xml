@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:layout_height="330dp"
+    android:background="@drawable/bg_login2">
+
+    <com.github.gzuliyujiang.wheelpicker.widget.NumberWheelLayout
+        android:id="@+id/wheel_picker_number_wheel"
+        android:layout_width="250dp"
+        android:layout_height="270dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:wheel_cyclicEnabled="true"
+        app:wheel_itemTextColor="@color/black2"
+        app:wheel_itemTextColorSelected="@color/green_304129"
+        app:wheel_itemTextSizeSelected="25sp"
+        app:wheel_maxNumber="120"
+        app:wheel_minNumber="50"
+        app:wheel_visibleItemCount="7" />
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_cancel"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/wheel_picker_number_wheel"
+        app:layout_constraintTop_toBottomOf="@+id/wheel_picker_number_wheel">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_button_click_20dp_white_blue"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@drawable/bg_text_click_blue_white" />
+    </me.grantland.widget.AutofitLayout>
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_confirm"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/wheel_picker_number_wheel"
+        app:layout_constraintTop_toBottomOf="@+id/wheel_picker_number_wheel">
+
+        <Button
+            android:id="@+id/btn_confirm"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_button_click_20dp_white_blue"
+            android:text="@string/confirm"
+            android:textAllCaps="false"
+            android:textColor="@drawable/bg_text_click_blue_white" />
+    </me.grantland.widget.AutofitLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

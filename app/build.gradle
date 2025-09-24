@@ -1,0 +1,162 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+def static releaseTime() {
+    return new Date().format("MMddHHmm")
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/okio.kotlin_module'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'  // 指定本地库目录
+        }
+    }
+    compileSdkVersion 29
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.hyeprion.foodrecyclingsystem"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 2
+        versionName "1.0.53"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    signingConfigs {
+        release {
+            keyAlias 'MegaReencle'
+            keyPassword 'MegaReencle#8$k'
+            storeFile file('MegaReencle.jks')
+            storePassword 'MegaReencle#8$k'
+        }
+
+        debug {
+            storeFile file('MegaReencle.jks')
+            storePassword 'MegaReencle#8$k'
+            keyAlias = 'MegaReencle'
+            keyPassword 'MegaReencle#8$k'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        if (variant.buildType.name.equals('release')) {
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    outputFileName = "Mega Reencle V${defaultConfig.versionName}.apk"
+//                    outputFileName = "Mega Reencle V${defaultConfig.versionName}_ttyS3.apk"
+//                    outputFileName = "Mega Reencle V${defaultConfig.versionName}_ttyUSB5.apk"
+                }
+            }
+        } else if (variant.buildType.name.equals('debug')) {
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    outputFileName = "Mega Reencle-debug V${defaultConfig.versionName}-${releaseTime()}.apk"
+                }
+            }
+        }
+    }
+
+
+    buildTypes {
+        release {
+            // 是否进行混淆
+            minifyEnabled false
+            // 混淆文件的位置
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+
+            lintOptions {
+                checkReleaseBuilds false
+                abortOnError false
+            }
+            signingConfig signingConfigs.release
+            buildConfigField("String","ttyType",'"ttyS3"')
+        }
+        debug {
+            debuggable = true
+            signingConfig signingConfigs.debug
+            buildConfigField("String","ttyType",'"ttyS3"')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    viewBinding{
+        enabled = true
+    }
+
+}
+
+greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage 'com.hyeprion.foodrecyclingsystem.greendao.db'
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录,请注意，这里路径用/不要用.
+    generateTests false //设置为true以自动生成单元测试。
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //MultiDexApplication
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.blankj:utilcodex:1.31.1'
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    implementation 'com.github.getActivity:XXPermissions:16.8'
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    // recyclerView
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+    // 数字选择器，选择温度
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelPicker:4.1.11'
+    implementation 'com.alibaba:fastjson:1.2.58'
+    // 文字自适应
+    implementation 'me.grantland:autofittextview:0.2.1'
+    // 串口工具
+    implementation 'com.github.maybesix:Android-XHLibrary:v1.0.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    // 网络请求框架
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // greendao 数据库
+    implementation 'org.greenrobot:greendao:3.3.0'
+    // add library
+    // recyclerView
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+    // 首页屏保轮播图
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'io.github.youth5201314:banner:2.2.3'
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+
+    implementation files('libs/ysapi.jar')
+
+    implementation 'com.squareup.okio:okio:3.6.0'
+    implementation('com.squareup.okhttp3:okhttp:4.11.0') {
+        exclude group: 'com.squareup.okio', module: 'okio'
+    }
+
+
+    implementation 'com.github.huangyanbin:SmartTable:2.2.0'
+}

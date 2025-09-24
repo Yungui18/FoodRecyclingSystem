@@ -1,0 +1,245 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
+    <style name="number_button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">85dp</item>
+        <item name="android:layout_height">85dp</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@drawable/bg_text_click_blue_white</item>
+        <item name="android:background">@drawable/bg_button_click_circle</item>
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="number_button_new1" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textSize">70sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_login_click_1</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="number_button_new2" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textSize">70sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_login_click_2</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="admin_button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">75dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/green_304129</item>
+        <item name="android:background">@drawable/bg_button_15_white</item>
+    </style>
+
+    <style name="inlet_log_button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">110dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/green_304129</item>
+        <item name="android:background">@drawable/bg_button_15_white</item>
+    </style>
+
+    <style name="admin_control_button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">135dp</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">@font/notosanskrmedium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@mipmap/btn_admin_control_unselect</item>
+    </style>
+
+    <style name="admin_button_choose" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">75dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_button_15_blue</item>
+    </style>
+
+    <style name="admin_button2" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/blue_5BB8E8</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:background">@drawable/bg_button_15_white</item>
+    </style>
+
+    <style name="DialogFullScreen" parent="Theme.AppCompat.Dialog">
+        <!--        <item name="android:windowIsFloating">true</item>-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <!--        <item name="android:backgroundDimEnabled">false</item>&lt;!&ndash; 设置dialog背景不变暗 &ndash;&gt;-->
+    </style>
+
+    <!-- dialog样式 -->
+    <style name="dialog" parent="@android:style/Theme.Dialog"><!--name是我们在使用时要用到的资源的标志，parent是指当前的样式所继承的父类样式-->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowSoftInputMode">adjustNothing</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+
+    <style name="RadioButtonGray">
+        <item name="android:buttonTint">@color/gray_CDC9C9</item>
+        <item name="android:textColor">@color/gray_CDC9C9</item>
+    </style>
+
+    <style name="RadioButtonBlue">
+        <item name="android:buttonTint">@color/radio_btn_color_selector</item>
+        <item name="android:textColor">@color/blue_5BB8E8</item>
+    </style>
+
+    <style name="activity_admin_status_TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/blue_5BB8E8</item>
+        <item name="android:textSize">27sp</item>
+    </style>
+
+    <style name="activity_admin_status_TextView2">
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/status_table</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/green_304129</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="activity_admin_status_TextView3">
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:background">@drawable/status_table</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#4F4F4F</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="activity_admin_control_TextView">
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/green_304129</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_marginTop">32dp</item>
+    </style>
+    <style name="activity_admin_control_TextView2">
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/green_304129</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="activity_admin_parameter_TextView">
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">#25342D</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="CustomRadioTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/sourcejansanscnregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:button">@drawable/radio_style</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:textColor">#25342D</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+
+
+    <style name="admin_button_trouble_test" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/blue_5BB8E8</item>
+        <item name="android:background">@drawable/bg_button_15_white</item>
+    </style>
+
+
+    <style name="scstyle" parent="Theme.AppCompat.Light">
+        <!--开启时的颜色-->
+        <item name="colorControlActivated">#304139</item>
+        <!--关闭时的颜色-->
+        <item name="colorSwitchThumbNormal">@color/gray_787878</item>
+        <!--关闭时的轨迹颜色-->
+        <item name="android:colorForeground">#304139</item>
+    </style>
+</resources>

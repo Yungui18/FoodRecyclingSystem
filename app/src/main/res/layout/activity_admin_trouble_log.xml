@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_admin_device_info"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:lines="1"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="27sp" />
+    </me.grantland.widget.AutofitLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rl_trouble_log"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_time"
+        tools:listitem="@layout/item_rl_trouble_log" />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="@id/rl_trouble_log"
+        app:layout_constraintEnd_toEndOf="@id/rl_trouble_log"
+        app:layout_constraintBottom_toTopOf="@id/rl_trouble_log"
+        android:background="@color/gray_E5E5E5" />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        android:text="@string/trouble_time"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/auto_fit_layout_back"
+        app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_back" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/type"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_time"
+        app:layout_constraintStart_toEndOf="@+id/tv_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_time" />
+
+    <TextView
+        android:id="@+id/tv_trouble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/trouble_content"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_type"
+        app:layout_constraintStart_toEndOf="@+id/tv_type"
+        app:layout_constraintTop_toTopOf="@+id/tv_type" />
+
+    <!--<TextView
+        android:id="@+id/tv1_now_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        tools:text="56 °C"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv1"
+        app:layout_constraintStart_toEndOf="@id/tv1"
+        app:layout_constraintTop_toTopOf="@id/tv1" />
+-->
+   <!-- <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        android:text="@string/now_humidity"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+    <TextView
+        android:id="@+id/tv2_now_humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        tools:text="45 %"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv2"
+        app:layout_constraintStart_toEndOf="@id/tv2"
+        app:layout_constraintTop_toTopOf="@id/tv2" />
+
+-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

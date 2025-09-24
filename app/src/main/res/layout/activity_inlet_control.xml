@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <TextView
+        android:id="@+id/tv_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/countdown"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="27sp" />
+    </me.grantland.widget.AutofitLayout>
+
+    <!-- <me.grantland.widget.AutofitLayout
+         android:id="@+id/auto_fit_layout_open_inlet"
+         android:layout_width="300dp"
+         android:layout_height="150dp"
+         android:visibility="gone"
+         android:layout_marginTop="84dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent">
+
+         <Button
+             android:id="@+id/btn_open_inlet"
+             style="?android:attr/borderlessButtonStyle"
+             android:layout_width="300dp"
+             android:layout_height="150dp"
+             android:background="@drawable/bg_button_click_20dp_white_blue"
+             android:text="@string/open_inlet"
+             android:textAllCaps="false"
+             android:textColor="@drawable/bg_text_click_blue_white"
+             android:textSize="43sp"
+             android:textStyle="bold" />
+     </me.grantland.widget.AutofitLayout>-->
+
+    <!--    <me.grantland.widget.AutofitLayout
+            android:id="@+id/auto_fit_layout_close_inlet"
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/iv_bottom"
+            >
+
+            <Button
+                android:id="@+id/btn_close_inlet"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:background="@drawable/bg_button_click_20dp_white_blue"
+                android:text="@string/close_inlet"
+                android:textAllCaps="false"
+                android:textColor="@drawable/bg_text_click_blue_white"
+                android:textSize="70sp"
+                android:textStyle="bold" />
+        </me.grantland.widget.AutofitLayout>-->
+    <Button
+        android:id="@+id/btn_close_inlet"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_button_click_20dp_white_blue"
+        android:text="@string/close_inlet"
+        android:textAllCaps="false"
+        android:textColor="@drawable/bg_text_click_blue_white"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/iv_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

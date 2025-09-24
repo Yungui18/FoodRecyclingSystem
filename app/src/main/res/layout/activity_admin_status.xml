@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="27sp" />
+    </me.grantland.widget.AutofitLayout>
+    <!--<com.bin.david.form.core.SmartTable
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />-->
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:stretchColumns="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auto_fit_layout_back">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv1"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/power_source"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv2"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/run_mode"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv3"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/stir_motor2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv4"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/stri_senor_error"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv5"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/air_temperature"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv10"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/dehumidifier"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv1_power_source"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/on" />
+
+            <TextView
+                android:id="@+id/tv2_run_mode"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/automation" />
+
+            <TextView
+                android:id="@+id/tv3_stir_motor"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/on" />
+
+            <TextView
+                android:id="@+id/tv4_stir_motor_error"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/normal" />
+
+            <TextView
+                android:id="@+id/tv5_air_temperature"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="30℃" />
+
+            <TextView
+                android:id="@+id/tv10_motor_shaft_status"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/on" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv6"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/heater_front"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv7"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/heater_front_temperature"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv8"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/heater_behind"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv9"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/heater_behind_temperature"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv11"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/air_humidity"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv12"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/light"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv6_heater1"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/off" />
+
+            <TextView
+                android:id="@+id/tv7_heater1_temperature"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="35℃" />
+
+            <TextView
+                android:id="@+id/tv8_heater2"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/on" />
+
+            <TextView
+                android:id="@+id/tv9_heater2_temperature"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="35℃" />
+
+            <TextView
+                android:id="@+id/tv11_air_humidity"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="89%" />
+
+            <TextView
+                android:id="@+id/tv12_light"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/off" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv13"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/inlet_sensor"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv14"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/inlet_button"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv15"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/measuring"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv16"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/outlet"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv17"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/exhaust_fan"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv18"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/let_right"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv13_inlet_sensor"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="off,off,off" />
+
+            <TextView
+                android:id="@+id/tv14_inlet_button"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/off" />
+
+            <TextView
+                android:id="@+id/tv15_measuring"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/off" />
+
+            <TextView
+                android:id="@+id/tv16_outlet"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/off" />
+
+            <TextView
+                android:id="@+id/tv17_fan"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/off" />
+
+            <TextView
+                android:id="@+id/tv18_led1"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/G" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv19"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/let_left"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv20"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/wind_presssure"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv21"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/cuowu"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv22"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/daily_total_inlet"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv23"
+                style="@style/activity_admin_status_TextView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/now_weight"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv19_led2"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/G" />
+
+            <TextView
+                android:id="@+id/tv20_wind_presssure"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="@string/normal" />
+
+            <TextView
+                android:id="@+id/tv21_cuowu"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="000" />
+
+            <TextView
+                android:id="@+id/tv22_daily_total_inlet"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="54kg" />
+
+            <TextView
+                android:id="@+id/tv23_now_weight"
+                style="@style/activity_admin_status_TextView2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                tools:text="54kg" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

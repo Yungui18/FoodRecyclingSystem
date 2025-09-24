@@ -1,0 +1,2059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="27sp" />
+    </me.grantland.widget.AutofitLayout>
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="75dp"
+
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/tv0_normal_mode_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:includeFontPadding="false"
+                android:text="@string/normal_mode_setting"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv1_language_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/language_settings"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv0_normal_mode_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv0_normal_mode_setting" />
+
+            <TextView
+                android:id="@+id/tv2_app_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/mode_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv1_language_settings"
+                app:layout_constraintTop_toBottomOf="@+id/tv1_language_settings" />
+
+            <TextView
+                android:id="@+id/tv3_weighing_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/weighing_mode"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv2_app_mode"
+                app:layout_constraintTop_toBottomOf="@+id/tv2_app_mode" />
+
+            <TextView
+                android:id="@+id/tv7_alarm_total_inlet_limited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/alarm_total_inlet_weight"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv3_weighing_mode"
+                app:layout_constraintTop_toBottomOf="@+id/tv3_weighing_mode" />
+
+
+            <TextView
+                android:id="@+id/tv12_24H_inlet_limited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/_24h_inlet_limited"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv13_total_inlet_limited"
+                app:layout_constraintTop_toBottomOf="@+id/tv13_total_inlet_limited" />
+
+            <TextView
+                android:id="@+id/tv13_total_inlet_limited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/total_inlet_limited"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv7_alarm_total_inlet_limited"
+                app:layout_constraintTop_toBottomOf="@+id/tv7_alarm_total_inlet_limited" />
+
+
+            <TextView
+                android:id="@+id/tv9_weigh_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/weigh_alarm_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv12_24H_inlet_limited"
+                app:layout_constraintTop_toBottomOf="@+id/tv12_24H_inlet_limited" />
+
+
+            <TextView
+                android:id="@+id/tv4_login_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/login_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv9_weigh_alarm"
+                app:layout_constraintTop_toBottomOf="@+id/tv9_weigh_alarm" />
+
+            <TextView
+                android:id="@+id/tv5_inlet_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/inlet_mode"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv4_login_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv4_login_setting" />
+
+            <TextView
+                android:id="@+id/tv6_heating_temperature_settings_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/heating_temperature_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv5_inlet_mode"
+                app:layout_constraintTop_toBottomOf="@+id/tv5_inlet_mode" />
+
+            <TextView
+                android:id="@+id/tv8_humidity_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/humidity_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv19_heating_temperature_alarm_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv19_min_alarm_temp_ignore_time" />
+
+
+            <TextView
+                android:id="@+id/tv10_inlet_timeout_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/inlet_timeout_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv8_humidity_settings"
+                app:layout_constraintTop_toBottomOf="@+id/tv8_humidity_settings" />
+
+            <TextView
+                android:id="@+id/tv11_fan_gear_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/sourcejansanscnregular"
+                android:includeFontPadding="false"
+                android:text="@string/fan_humidity_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv10_inlet_timeout_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv10_inlet_timeout_setting" />
+
+            <TextView
+                android:id="@+id/tv14_stir_run_interval_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/stir_run_interval"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv11_fan_gear_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv11_fan_gear_setting" />
+
+            <View
+                android:id="@+id/split_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/gray_787878"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv20_screensaver_setting" />
+
+            <TextView
+                android:id="@+id/tv15_power_saving_mode_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:includeFontPadding="false"
+                android:text="@string/power_saving_mode_setting"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv14_stir_run_interval_normal"
+                app:layout_constraintTop_toBottomOf="@+id/split_line" />
+
+
+            <TextView
+                android:id="@+id/tv16_stir_run_interval_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/stir_run_interval"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv15_power_saving_mode_setting"
+                app:layout_constraintTop_toBottomOf="@+id/tv15_power_saving_mode_setting" />
+
+            <TextView
+                android:id="@+id/tv17_heating_temperature_settings_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/heating_temperature_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv16_stir_run_interval_power_saving"
+                app:layout_constraintTop_toBottomOf="@+id/tv16_stir_run_interval_power_saving" />
+
+            <TextView
+                android:id="@+id/tv18_weight_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/weight_time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv14_stir_run_interval_normal"
+                app:layout_constraintTop_toBottomOf="@+id/tv14_stir_run_interval_normal" />
+
+            <TextView
+                android:id="@+id/tv19_heating_temperature_alarm_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/heating_temperature_alarm_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv6_heating_temperature_settings_normal"
+                app:layout_constraintTop_toBottomOf="@+id/tv6_heating_temperature_settings_normal" />
+
+            <TextView
+                android:id="@+id/tv20_screensaver_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="@string/screensaver_setting"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv18_weight_time"
+                app:layout_constraintTop_toBottomOf="@+id/tv18_weight_time" />
+
+            <TextView
+                android:id="@+id/tv21_fan_run_interval_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:includeFontPadding="false"
+                android:text="排 风 运 行 间 隔"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv17_heating_temperature_settings_power_saving"
+                app:layout_constraintTop_toBottomOf="@+id/tv17_heating_temperature_settings_power_saving" />
+
+            <RadioGroup
+                android:id="@+id/rg1_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="340dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/tv1_language_settings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv1_language_settings">
+
+                <RadioButton
+                    android:id="@+id/rb1_chinese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/chinese"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    tools:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/rb1_korean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/korean"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp" />
+
+                <RadioButton
+                    android:id="@+id/rb1_japanese"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/japanese"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp" />
+
+                <RadioButton
+                    android:id="@+id/rb1_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/english"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg2_app_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/tv2_app_mode"
+                app:layout_constraintStart_toStartOf="@+id/rg1_language"
+                app:layout_constraintTop_toTopOf="@+id/tv2_app_mode">
+
+                <RadioButton
+                    android:id="@+id/rb2_apartment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/apartment"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    tools:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/rb2_shop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/shop"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg3_weighing_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/tv3_weighing_mode"
+                app:layout_constraintStart_toStartOf="@+id/rg2_app_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv3_weighing_mode">
+
+                <RadioButton
+                    android:id="@+id/rb3_have"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/have"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    tools:checked="true" />
+
+                <!-- <RadioButton
+                     android:id="@+id/rb3_outside"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:buttonTint="@color/radio_btn_color_selector"
+                     android:fontFamily="@font/sourcejansanscnregular"
+                     android:includeFontPadding="false"
+                     android:text="@string/outside"
+                     android:textColor="@color/blue_5BB8E8"
+                     android:textSize="24sp" />
+ -->
+                <RadioButton
+                    android:id="@+id/rb3_none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/none"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp" />
+            </RadioGroup>
+
+
+
+            <TextView
+                android:id="@+id/tv7_alarm_max_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/max_weight"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv7_alarm_total_inlet_limited"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv7_alarm_total_inlet_limited" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl7_alarm_max_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tv7_alarm_max_weight"
+                app:layout_constraintStart_toEndOf="@+id/tv7_alarm_max_weight"
+                app:layout_constraintTop_toTopOf="@+id/tv7_alarm_max_weight">
+
+                <TextView
+                    android:id="@+id/tv7_alarm_max_weight_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="80KG" />
+
+                <ImageView
+                    android:id="@+id/iv7_alarm_max_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv7_alarm_max_weight_num"
+                    app:layout_constraintStart_toEndOf="@id/tv7_alarm_max_weight_num"
+                    app:layout_constraintTop_toTopOf="@id/tv7_alarm_max_weight_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv7_alarm_min_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:includeFontPadding="false"
+                android:text="@string/min_weight"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv7_alarm_max_weight"
+                app:layout_constraintStart_toEndOf="@id/cl7_alarm_max_weight"
+                app:layout_constraintTop_toTopOf="@+id/tv7_alarm_max_weight" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl7_alarm_min_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv7_alarm_min_weight"
+                app:layout_constraintStart_toEndOf="@+id/tv7_alarm_min_weight"
+                app:layout_constraintTop_toTopOf="@+id/tv7_alarm_min_weight">
+
+                <TextView
+                    android:id="@+id/tv7_alarm_min_weight_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="5KG" />
+
+                <ImageView
+                    android:id="@+id/iv7_alarm_min_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv7_alarm_min_weight_num"
+                    app:layout_constraintStart_toEndOf="@id/tv7_alarm_min_weight_num"
+                    app:layout_constraintTop_toTopOf="@id/tv7_alarm_min_weight_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl12_24H_inlet_limited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tv12_24H_inlet_limited"
+                app:layout_constraintStart_toStartOf="@+id/tv6_target_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv12_24H_inlet_limited">
+
+                <TextView
+                    android:id="@+id/tv12_24H_inlet_limited_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="80KG" />
+
+                <ImageView
+                    android:id="@+id/iv12_24H_inlet_limited_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv12_24H_inlet_limited_num"
+                    app:layout_constraintStart_toEndOf="@id/tv12_24H_inlet_limited_num"
+                    app:layout_constraintTop_toTopOf="@id/tv12_24H_inlet_limited_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl13_total_inlet_limited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tv13_total_inlet_limited"
+                app:layout_constraintStart_toStartOf="@+id/tv6_target_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv13_total_inlet_limited">
+
+                <TextView
+                    android:id="@+id/tv13_total_inlet_limited_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="80KG" />
+
+                <ImageView
+                    android:id="@+id/iv_total_inlet_limited"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv13_total_inlet_limited_num"
+                    app:layout_constraintStart_toEndOf="@id/tv13_total_inlet_limited_num"
+                    app:layout_constraintTop_toTopOf="@id/tv13_total_inlet_limited_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btn13_reset_total_inlet_limited"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:background="@drawable/bg_button_click_20dp_white_blue"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/cl13_total_inlet_limited"
+                app:layout_constraintStart_toEndOf="@id/cl13_total_inlet_limited"
+                app:layout_constraintTop_toTopOf="@id/cl13_total_inlet_limited" />
+
+
+            <TextView
+                android:id="@+id/tv9_weigh_alarm_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv9_weigh_alarm"
+                app:layout_constraintStart_toStartOf="@+id/tv6_target_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv9_weigh_alarm" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl9_weigh_alarm_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv9_weigh_alarm_time"
+                app:layout_constraintStart_toEndOf="@+id/tv9_weigh_alarm_time"
+                app:layout_constraintTop_toTopOf="@+id/tv9_weigh_alarm_time">
+
+                <TextView
+                    android:id="@+id/tv9_weigh_alarm_time_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1min" />
+
+                <ImageView
+                    android:id="@+id/iv_alarm_time_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv9_weigh_alarm_time_num"
+                    app:layout_constraintStart_toEndOf="@id/tv9_weigh_alarm_time_num"
+                    app:layout_constraintTop_toTopOf="@id/tv9_weigh_alarm_time_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv9_weigh_alarm_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:includeFontPadding="false"
+                android:text="@string/weight"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv9_weigh_alarm_time"
+                app:layout_constraintStart_toEndOf="@id/cl9_weigh_alarm_time"
+                app:layout_constraintTop_toTopOf="@+id/tv9_weigh_alarm_time" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl9_weigh_alarm_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv9_weigh_alarm_weight"
+                app:layout_constraintStart_toEndOf="@+id/tv9_weigh_alarm_weight"
+                app:layout_constraintTop_toTopOf="@+id/tv9_weigh_alarm_weight">
+
+                <TextView
+                    android:id="@+id/tv9_weigh_alarm_weight_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="5KG" />
+
+                <ImageView
+                    android:id="@+id/iv_alarm_weight_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv9_weigh_alarm_weight_num"
+                    app:layout_constraintStart_toEndOf="@id/tv9_weigh_alarm_weight_num"
+                    app:layout_constraintTop_toTopOf="@id/tv9_weigh_alarm_weight_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <RadioGroup
+                android:id="@+id/rg4_login_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/tv4_login_setting"
+                app:layout_constraintStart_toStartOf="@+id/rg1_language"
+                app:layout_constraintTop_toTopOf="@+id/tv4_login_setting">
+
+                <RadioButton
+                    android:id="@+id/rb4_have"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/have"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    tools:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/rb4_none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/none"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp" />
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btn4_unbind"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:background="@drawable/bg_button_click_20dp_white_blue"
+                android:text="@string/unbind"
+                android:textAllCaps="false"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/rg4_login_setting"
+                app:layout_constraintStart_toEndOf="@id/rg4_login_setting"
+                app:layout_constraintTop_toTopOf="@id/rg4_login_setting" />
+
+
+
+
+
+            <RadioGroup
+                android:id="@+id/rg5_inlet_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/tv5_inlet_mode"
+                app:layout_constraintStart_toStartOf="@+id/rg1_language"
+                app:layout_constraintTop_toTopOf="@+id/tv5_inlet_mode">
+
+                <RadioButton
+                    android:id="@+id/rb5_automation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/automation"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    tools:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/rb5_manual"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:buttonTint="@color/radio_btn_color_selector"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:text="@string/manual"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv6_target_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/target_temperature"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv6_heating_temperature_settings_normal"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv6_heating_temperature_settings_normal" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl6_target_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv6_target_temperature"
+                app:layout_constraintStart_toEndOf="@+id/tv6_target_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv6_target_temperature">
+
+                <TextView
+                    android:id="@+id/tv6_target_temperature_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="34℃" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv6_target_temperature_num"
+                    app:layout_constraintStart_toEndOf="@id/tv6_target_temperature_num"
+                    app:layout_constraintTop_toTopOf="@id/tv6_target_temperature_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv6_float_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/floating_range"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv6_target_temperature"
+                app:layout_constraintStart_toEndOf="@id/cl6_target_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv6_target_temperature" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl6_float_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv6_float_temperature"
+                app:layout_constraintStart_toEndOf="@+id/tv6_float_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv6_float_temperature">
+
+                <TextView
+                    android:id="@+id/tv6_float_temperature_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="±80℃" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv6_float_temperature_num"
+                    app:layout_constraintStart_toEndOf="@id/tv6_float_temperature_num"
+                    app:layout_constraintTop_toTopOf="@id/tv6_float_temperature_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv19_max_alarm_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/max_temp"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/tv6_target_temperature"
+                app:layout_constraintBottom_toBottomOf="@+id/tv19_heating_temperature_alarm_setting"
+                app:layout_constraintTop_toTopOf="@+id/tv19_heating_temperature_alarm_setting" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl19_max_alarm_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv19_max_alarm_temperature"
+                app:layout_constraintStart_toEndOf="@+id/tv19_max_alarm_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv19_max_alarm_temperature">
+
+                <TextView
+                    android:id="@+id/tv19_max_alarm_temperature_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="34℃" />
+
+                <ImageView
+                    android:id="@+id/iv_max_alarm_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv19_max_alarm_temperature_num"
+                    app:layout_constraintStart_toEndOf="@id/tv19_max_alarm_temperature_num"
+                    app:layout_constraintTop_toTopOf="@id/tv19_max_alarm_temperature_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv19_min_alarm_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/min_temp"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv19_max_alarm_temperature"
+                app:layout_constraintStart_toEndOf="@id/cl19_max_alarm_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv19_max_alarm_temperature" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl19_min_alarm_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv19_min_alarm_temperature"
+                app:layout_constraintStart_toEndOf="@+id/tv19_min_alarm_temperature"
+                app:layout_constraintTop_toTopOf="@+id/tv19_min_alarm_temperature">
+
+                <TextView
+                    android:id="@+id/tv19_min_alarm_temperature_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="30℃" />
+
+                <ImageView
+                    android:id="@+id/iv_min_alarm_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv19_min_alarm_temperature_num"
+                    app:layout_constraintStart_toEndOf="@id/tv19_min_alarm_temperature_num"
+                    app:layout_constraintTop_toTopOf="@id/tv19_min_alarm_temperature_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv19_min_alarm_temp_ignore_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/ready_time"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/tv6_target_temperature"
+                app:layout_constraintTop_toBottomOf="@+id/tv19_max_alarm_temperature" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl19_min_alarm_temp_ignore_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv19_min_alarm_temp_ignore_time"
+                app:layout_constraintStart_toEndOf="@+id/tv19_min_alarm_temp_ignore_time"
+                app:layout_constraintTop_toTopOf="@+id/tv19_min_alarm_temp_ignore_time">
+
+                <TextView
+                    android:id="@+id/tv19_min_alarm_temp_ignore_time_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="20min" />
+
+                <ImageView
+                    android:id="@+id/iv_min_alarm_temp_ignore_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv19_min_alarm_temp_ignore_time_num"
+                    app:layout_constraintStart_toEndOf="@id/tv19_min_alarm_temp_ignore_time_num"
+                    app:layout_constraintTop_toTopOf="@id/tv19_min_alarm_temp_ignore_time_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv8_target_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/target_humidity"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv8_humidity_settings"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv8_humidity_settings" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl8_target_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv8_target_humidity"
+                app:layout_constraintStart_toEndOf="@+id/tv8_target_humidity"
+                app:layout_constraintTop_toTopOf="@+id/tv8_target_humidity">
+
+                <TextView
+                    android:id="@+id/tv8_target_humidity_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="34%" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv8_target_humidity_num"
+                    app:layout_constraintStart_toEndOf="@id/tv8_target_humidity_num"
+                    app:layout_constraintTop_toTopOf="@id/tv8_target_humidity_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv8_float_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/floating_range"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv8_target_humidity"
+                app:layout_constraintStart_toEndOf="@id/cl8_target_humidity"
+                app:layout_constraintTop_toTopOf="@+id/tv8_target_humidity" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl8_float_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv8_float_humidity"
+                app:layout_constraintStart_toEndOf="@+id/tv8_float_humidity"
+                app:layout_constraintTop_toTopOf="@+id/tv8_float_humidity">
+
+                <TextView
+                    android:id="@+id/tv8_float_humidity_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="20%" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv8_float_humidity_num"
+                    app:layout_constraintStart_toEndOf="@id/tv8_float_humidity_num"
+                    app:layout_constraintTop_toTopOf="@id/tv8_float_humidity_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv10_inlet_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/inlet_timeout"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv10_inlet_timeout_setting"
+                app:layout_constraintStart_toStartOf="@+id/tv8_target_humidity"
+                app:layout_constraintTop_toTopOf="@+id/tv10_inlet_timeout_setting" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl10_inlet_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv10_inlet_timeout"
+                app:layout_constraintStart_toEndOf="@+id/tv10_inlet_timeout"
+                app:layout_constraintTop_toTopOf="@+id/tv10_inlet_timeout">
+
+                <TextView
+                    android:id="@+id/tv10_inlet_timeout_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2S" />
+
+                <ImageView
+                    android:id="@+id/iv_inlet_timeout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv10_inlet_timeout_num"
+                    app:layout_constraintStart_toEndOf="@id/tv10_inlet_timeout_num"
+                    app:layout_constraintTop_toTopOf="@id/tv10_inlet_timeout_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv10_inlet_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:includeFontPadding="false"
+                android:text="@string/inlet_voltage"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cl10_inlet_timeout"
+                app:layout_constraintStart_toEndOf="@id/cl10_inlet_timeout"
+                app:layout_constraintTop_toTopOf="@+id/cl10_inlet_timeout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl10_inlet_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv10_inlet_voltage"
+                app:layout_constraintStart_toEndOf="@+id/tv10_inlet_voltage"
+                app:layout_constraintTop_toTopOf="@+id/tv10_inlet_voltage">
+
+                <TextView
+                    android:id="@+id/tv10_inlet_voltage_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="12" />
+
+                <ImageView
+                    android:id="@+id/iv_inlet_voltage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv10_inlet_voltage_num"
+                    app:layout_constraintStart_toEndOf="@id/tv10_inlet_voltage_num"
+                    app:layout_constraintTop_toTopOf="@id/tv10_inlet_voltage_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv11_fan_gear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/fan_gear"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_fan_gear_setting"
+                app:layout_constraintStart_toStartOf="@+id/tv10_inlet_timeout"
+                app:layout_constraintTop_toTopOf="@+id/tv11_fan_gear_setting" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl11_fan_gear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_fan_gear"
+                app:layout_constraintStart_toEndOf="@+id/tv11_fan_gear"
+                app:layout_constraintTop_toTopOf="@+id/tv11_fan_gear">
+
+                <TextView
+                    android:id="@+id/tv11_fan_gear_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+                <ImageView
+                    android:id="@+id/iv_fan_gear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv11_fan_gear_num"
+                    app:layout_constraintStart_toEndOf="@id/tv11_fan_gear_num"
+                    app:layout_constraintTop_toTopOf="@id/tv11_fan_gear_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv11_fan_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/fan_humidity"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cl11_fan_gear"
+                app:layout_constraintStart_toEndOf="@id/cl11_fan_gear"
+                app:layout_constraintTop_toTopOf="@+id/cl11_fan_gear" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl11_fan_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_fan_humidity"
+                app:layout_constraintStart_toEndOf="@+id/tv11_fan_humidity"
+                app:layout_constraintTop_toTopOf="@+id/tv11_fan_humidity">
+
+                <TextView
+                    android:id="@+id/tv11_fan_humidity_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="50%" />
+
+                <ImageView
+                    android:id="@+id/iv_11_fan_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv11_fan_humidity_num"
+                    app:layout_constraintStart_toEndOf="@id/tv11_fan_humidity_num"
+                    app:layout_constraintTop_toTopOf="@id/tv11_fan_humidity_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv11_fan_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:includeFontPadding="false"
+                android:text="@string/fan_voltage"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cl11_fan_humidity"
+                app:layout_constraintStart_toEndOf="@id/cl11_fan_humidity"
+                app:layout_constraintTop_toTopOf="@+id/cl11_fan_humidity" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl11_fan_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv11_fan_voltage"
+                app:layout_constraintStart_toEndOf="@+id/tv11_fan_voltage"
+                app:layout_constraintTop_toTopOf="@+id/tv11_fan_voltage">
+
+                <TextView
+                    android:id="@+id/tv11_fan_voltage_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="5V" />
+
+                <ImageView
+                    android:id="@+id/iv_11_fan_voltage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv11_fan_voltage_num"
+                    app:layout_constraintStart_toEndOf="@id/tv11_fan_voltage_num"
+                    app:layout_constraintTop_toTopOf="@id/tv11_fan_voltage_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Group
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tv11_fan_gear,cl11_fan_gear,tv11_fan_voltage,cl11_fan_voltage"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv14_run_time_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/run_time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv14_stir_run_interval_normal"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv14_stir_run_interval_normal" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl14_run_time_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv14_run_time_normal"
+                app:layout_constraintStart_toEndOf="@+id/tv14_run_time_normal"
+                app:layout_constraintTop_toTopOf="@+id/tv14_run_time_normal">
+
+                <TextView
+                    android:id="@+id/tv14_run_time_normal_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="300min" />
+
+                <ImageView
+                    android:id="@+id/iv14_run_time_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv14_run_time_normal_num"
+                    app:layout_constraintStart_toEndOf="@id/tv14_run_time_normal_num"
+                    app:layout_constraintTop_toTopOf="@id/tv14_run_time_normal_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv14_interval_time_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/interval_time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv14_run_time_normal"
+                app:layout_constraintStart_toEndOf="@id/cl14_run_time_normal"
+                app:layout_constraintTop_toTopOf="@+id/tv14_run_time_normal" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl14_interval_time_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv14_interval_time_normal"
+                app:layout_constraintStart_toEndOf="@+id/tv14_interval_time_normal"
+                app:layout_constraintTop_toTopOf="@+id/tv14_interval_time_normal">
+
+                <TextView
+                    android:id="@+id/tv14_interval_time_normal_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="200min" />
+
+                <ImageView
+                    android:id="@+id/iv14_interval_time_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv14_interval_time_normal_num"
+                    app:layout_constraintStart_toEndOf="@id/tv14_interval_time_normal_num"
+                    app:layout_constraintTop_toTopOf="@id/tv14_interval_time_normal_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv18_feeding_before_weight_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/feeding_before"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv18_weight_time"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv18_weight_time" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl18_feeding_before_weight_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv18_feeding_before_weight_time"
+                app:layout_constraintStart_toEndOf="@+id/tv18_feeding_before_weight_time"
+                app:layout_constraintTop_toTopOf="@+id/tv18_feeding_before_weight_time">
+
+                <TextView
+                    android:id="@+id/tv18_feeding_before_weight_time_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="5s" />
+
+                <ImageView
+                    android:id="@+id/iv18_feeding_before_weight_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv18_feeding_before_weight_time_num"
+                    app:layout_constraintStart_toEndOf="@id/tv18_feeding_before_weight_time_num"
+                    app:layout_constraintTop_toTopOf="@id/tv18_feeding_before_weight_time_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv18_feeding_after_weight_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:includeFontPadding="false"
+                android:text="@string/feeding_after"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv18_weight_time"
+                app:layout_constraintStart_toEndOf="@id/cl18_feeding_before_weight_time"
+                app:layout_constraintTop_toTopOf="@+id/tv18_weight_time" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl18_feeding_after_weight_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv18_feeding_after_weight_time"
+                app:layout_constraintStart_toEndOf="@+id/tv18_feeding_after_weight_time"
+                app:layout_constraintTop_toTopOf="@+id/tv18_feeding_after_weight_time">
+
+                <TextView
+                    android:id="@+id/tv18_feeding_after_weight_time_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="5s" />
+
+                <ImageView
+                    android:id="@+id/iv18_feeding_after_weight_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv18_feeding_after_weight_time_num"
+                    app:layout_constraintStart_toEndOf="@id/tv18_feeding_after_weight_time_num"
+                    app:layout_constraintTop_toTopOf="@id/tv18_feeding_after_weight_time_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv16_run_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/run_time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv16_stir_run_interval_power_saving"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv16_stir_run_interval_power_saving" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl16_run_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv16_run_time_power_saving"
+                app:layout_constraintStart_toEndOf="@+id/tv16_run_time_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv16_run_time_power_saving">
+
+                <TextView
+                    android:id="@+id/tv16_run_time_power_saving_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="300min" />
+
+                <ImageView
+                    android:id="@+id/iv16_run_time_power_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv16_run_time_power_saving_num"
+                    app:layout_constraintStart_toEndOf="@id/tv16_run_time_power_saving_num"
+                    app:layout_constraintTop_toTopOf="@id/tv16_run_time_power_saving_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv16_interval_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/interval_time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv16_run_time_power_saving"
+                app:layout_constraintStart_toEndOf="@id/cl16_run_time_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv16_run_time_power_saving" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl16_interval_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv16_interval_time_power_saving"
+                app:layout_constraintStart_toEndOf="@+id/tv16_interval_time_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv16_interval_time_power_saving">
+
+                <TextView
+                    android:id="@+id/tv16_interval_time_power_saving_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="200min" />
+
+                <ImageView
+                    android:id="@+id/iv16_interval_time_power_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv16_interval_time_power_saving_num"
+                    app:layout_constraintStart_toEndOf="@id/tv16_interval_time_power_saving_num"
+                    app:layout_constraintTop_toTopOf="@id/tv16_interval_time_power_saving_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv17_target_temperature_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/target_temperature"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv17_heating_temperature_settings_power_saving"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv17_heating_temperature_settings_power_saving" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl17_target_temperature_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv17_target_temperature_power_saving"
+                app:layout_constraintStart_toEndOf="@+id/tv17_target_temperature_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv17_target_temperature_power_saving">
+
+                <TextView
+                    android:id="@+id/tv17_target_temperature_power_saving_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="34℃" />
+
+                <ImageView
+                    android:id="@+id/iv17_target_temperature_power_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv17_target_temperature_power_saving_num"
+                    app:layout_constraintStart_toEndOf="@id/tv17_target_temperature_power_saving_num"
+                    app:layout_constraintTop_toTopOf="@id/tv17_target_temperature_power_saving_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv17_float_temperature_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/floating_range"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv17_heating_temperature_settings_power_saving"
+                app:layout_constraintStart_toEndOf="@id/cl17_target_temperature_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv17_heating_temperature_settings_power_saving" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl17_float_temperature_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv17_float_temperature_power_saving"
+                app:layout_constraintStart_toEndOf="@+id/tv17_float_temperature_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv17_float_temperature_power_saving">
+
+                <TextView
+                    android:id="@+id/tv17_float_temperature_power_saving_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="±80℃" />
+
+                <ImageView
+                    android:id="@+id/iv17_power_float_temperature_power_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv17_float_temperature_power_saving_num"
+                    app:layout_constraintStart_toEndOf="@id/tv17_float_temperature_power_saving_num"
+                    app:layout_constraintTop_toTopOf="@id/tv17_float_temperature_power_saving_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl15_enter_power_saving_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv15_power_saving_mode_setting"
+                app:layout_constraintStart_toStartOf="@+id/tv14_run_time_normal"
+                app:layout_constraintTop_toTopOf="@+id/tv15_power_saving_mode_setting">
+
+                <TextView
+                    android:id="@+id/tv15_enter_power_saving_time_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="48h" />
+
+                <ImageView
+                    android:id="@+id/iv15_enter_power_saving_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv15_enter_power_saving_time_num"
+                    app:layout_constraintStart_toEndOf="@id/tv15_enter_power_saving_time_num"
+                    app:layout_constraintTop_toTopOf="@id/tv15_enter_power_saving_time_num"
+                    app:srcCompat="@mipmap/drop_down6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv20_screensaver_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv20_screensaver_setting"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv20_screensaver_setting" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl20_screensaver_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv20_screensaver_time"
+                app:layout_constraintStart_toEndOf="@+id/tv20_screensaver_time"
+                app:layout_constraintTop_toTopOf="@+id/tv20_screensaver_time">
+
+                <TextView
+                    android:id="@+id/tv20_screensaver_time_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="30min" />
+
+                <ImageView
+                    android:id="@+id/iv20_screensaver_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv20_screensaver_time_num"
+                    app:layout_constraintStart_toEndOf="@id/tv20_screensaver_time_num"
+                    app:layout_constraintTop_toTopOf="@id/tv20_screensaver_time_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/tv21_fan_run_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@string/run_time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv21_fan_run_interval_power_saving"
+                app:layout_constraintStart_toStartOf="@+id/rg5_inlet_mode"
+                app:layout_constraintTop_toTopOf="@+id/tv21_fan_run_interval_power_saving" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl21_fan_run_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv21_fan_run_time_power_saving"
+                app:layout_constraintStart_toEndOf="@+id/tv21_fan_run_time_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv21_fan_run_time_power_saving">
+
+                <TextView
+                    android:id="@+id/tv21_fan_run_time_power_saving_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/sourcejansanscnregular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="300min" />
+
+                <ImageView
+                    android:id="@+id/iv21_fan_run_time_power_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv21_fan_run_time_power_saving_num"
+                    app:layout_constraintStart_toEndOf="@id/tv21_fan_run_time_power_saving_num"
+                    app:layout_constraintTop_toTopOf="@id/tv21_fan_run_time_power_saving_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv21_fan_interval_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:includeFontPadding="false"
+                android:text="@string/interval_time"
+                android:textColor="@color/blue_5BB8E8"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv21_fan_run_interval_power_saving"
+                app:layout_constraintStart_toEndOf="@id/cl21_fan_run_time_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv21_fan_run_interval_power_saving" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl21_fan_interval_time_power_saving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv21_fan_interval_time_power_saving"
+                app:layout_constraintStart_toEndOf="@+id/tv21_fan_interval_time_power_saving"
+                app:layout_constraintTop_toTopOf="@+id/tv21_fan_interval_time_power_saving">
+
+                <TextView
+                    android:id="@+id/tv21_fan_interval_time_power_saving_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/blue_5BB8E8"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="200min" />
+
+                <ImageView
+                    android:id="@+id/iv21_fan_interval_time_power_saving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv21_fan_interval_time_power_saving_num"
+                    app:layout_constraintStart_toEndOf="@id/tv21_fan_interval_time_power_saving_num"
+                    app:layout_constraintTop_toTopOf="@id/tv21_fan_interval_time_power_saving_num"
+                    app:srcCompat="@mipmap/drop_down3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group7_daily_inlet_limited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="tv2_app_mode,rg2_app_mode" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

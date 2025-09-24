@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_admin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/iv_bottom"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bottom_bg" />
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_back"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:singleLine="true"
+            android:lines="1"
+            android:background="@drawable/bg_button_confirm_press"
+            android:fontFamily="@font/sourcejansanscnregular"
+            android:includeFontPadding="false"
+            android:text="@string/Logout"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="27sp" />
+    </me.grantland.widget.AutofitLayout>
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sourcejansanscnregular"
+        android:includeFontPadding="false"
+        android:text="@string/device_id"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/et_device_id"
+        app:layout_constraintEnd_toStartOf="@id/et_device_id"
+        app:layout_constraintTop_toTopOf="@id/et_device_id"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <EditText
+        android:id="@+id/et_device_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:minWidth="150dp"
+        android:singleLine="true"
+        android:textColor="@color/blue_5BB8E8"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="05400007" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="120dp"
+        android:scrollbars="none"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_parameter_setting"
+                android:layout_width="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_height="140dp"
+                app:layout_constraintEnd_toStartOf="@+id/auto_fit_layout_status"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/btn_parameter_setting"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_button_click_20dp_white_blue"
+                    android:text="@string/parameter_setting"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/bg_text_click_blue_white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_control_options"
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_parameter_setting"
+                app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_parameter_setting"
+                app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_parameter_setting">
+
+                <Button
+                    android:id="@+id/btn_control_options"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_button_click_20dp_white_blue"
+                    android:text="@string/control_options"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/bg_text_click_blue_white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+            </me.grantland.widget.AutofitLayout>
+
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_inlet_log"
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_control_options"
+                app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_control_options"
+                app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_control_options">
+
+                <Button
+                    android:id="@+id/btn_inlet_log"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_button_click_20dp_white_blue"
+                    android:text="@string/input_log"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/bg_text_click_blue_white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_status"
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/auto_fit_layout_parameter_setting"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/auto_fit_layout_parameter_setting"
+                app:layout_constraintTop_toTopOf="@+id/auto_fit_layout_parameter_setting">
+
+                <Button
+                    android:id="@+id/btn_status"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_button_click_20dp_white_blue"
+                    android:text="@string/status"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/bg_text_click_blue_white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_trouble_log"
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_status"
+                app:layout_constraintStart_toStartOf="@id/auto_fit_layout_status"
+                app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_status">
+
+                <Button
+                    android:id="@+id/btn_trouble_log"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_button_click_20dp_white_blue"
+                    android:text="@string/trouble_log"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/bg_text_click_blue_white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+            </me.grantland.widget.AutofitLayout>
+
+            <me.grantland.widget.AutofitLayout
+                android:id="@+id/auto_fit_layout_trouble_test"
+                android:layout_width="300dp"
+                android:visibility="gone"
+                android:layout_height="140dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toEndOf="@id/auto_fit_layout_trouble_log"
+                app:layout_constraintStart_toStartOf="@id/auto_fit_layout_trouble_log"
+                app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_trouble_log">
+
+                <Button
+                    android:id="@+id/btn_trouble_test"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_button_click_20dp_white_blue"
+                    android:text="trouble test"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/bg_text_click_blue_white"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+            </me.grantland.widget.AutofitLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_1_auto"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/scrollView"
+        app:layout_constraintTop_toTopOf="@+id/scrollView">
+
+        <Button
+            android:id="@+id/btn1_mode_auto"
+            style="@style/admin_button"
+            android:text="@string/automation" />
+    </me.grantland.widget.AutofitLayout>
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_2_manual"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_1_auto"
+        app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_1_auto"
+        app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_1_auto">
+
+        <Button
+            android:id="@+id/btn2_mode_manual"
+            style="@style/admin_button"
+            android:layout_width="70dp"
+            android:text="@string/manual" />
+    </me.grantland.widget.AutofitLayout>
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_3_stop"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_2_manual"
+        app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_2_manual"
+        app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_2_manual">
+
+        <Button
+            android:id="@+id/btn3_mode_stop"
+            style="@style/admin_button"
+            android:text="@string/stop" />
+    </me.grantland.widget.AutofitLayout>
+
+    <me.grantland.widget.AutofitLayout
+        android:id="@+id/auto_fit_layout_4_alarm"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/auto_fit_layout_3_stop"
+        app:layout_constraintStart_toStartOf="@+id/auto_fit_layout_3_stop"
+        app:layout_constraintTop_toBottomOf="@+id/auto_fit_layout_3_stop">
+
+        <Button
+            android:id="@+id/btn4_mode_alarm"
+            style="@style/admin_button"
+            android:text="@string/alarm" />
+    </me.grantland.widget.AutofitLayout>
+
+    <ImageView
+        android:id="@+id/iv_drop"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="443dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toTopOf="@id/iv_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/drop_down4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
