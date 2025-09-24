@@ -1,5 +1,6 @@
 package com.hyeprion.foodrecyclingsystem.util;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
@@ -233,29 +234,24 @@ public class HTTPServerUtil {
      * @param ledValue LED状态值
      */
     public static void sendErrorInfo(int errorCode, String errorMessage, int ledValue, String systemNo) {
-        if (TextUtils.isEmpty(systemNo)) {
-            LogUtils.e("设备编号为空，无法上报故障");
-            return;
-        }
-        // 构建GET请求（按URL格式要求）
-        OkGo.<String>get(Constant.IP)
-                .params("type", "5") // 固定type=5
-                .params("systemNo", systemNo)
+        OkGo.<String>post(Constant.IP)
+                .params("type", Constant.HTTP_PARAMS_TYPE_ERROR_REPORT) // type=5
+                .params(Constant.HTTP_PARAMS_SYSTEM_NO, systemNo)
                 .params("errorCode", errorCode)
-                .params("errorMessage", errorMessage)
-                .params("led", ledValue)
-                .tag("ErrorReport")
+                .params(Constant.HTTP_PARAMS_ERROR_MESSAGE, errorMessage) // 传入多语言描述
+                .params(Constant.HTTP_PARAMS_LED, ledValue)
+                .tag(ActivityUtil.getInstance().getActivity())
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        LogUtils.e("故障上报成功：" + response.body());
+                        // 处理成功响应
+                        LogUtils.e("Error info sent: " + response.body());
                     }
 
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
-                        LogUtils.e("故障上报失败：" + response.message());
-
+                        LogUtils.e("Failed to send error info");
                     }
                 });
     }
@@ -266,31 +262,44 @@ public class HTTPServerUtil {
      * @return 数组[errorCode, errorMessage]
      */
     public static String[] getErrorInfoByType(int troubleType) {
+        Context context = MyApplication.getInstance();
+        String errorCode = String.valueOf(troubleType);
+        String errorMessage = "";
+
         switch (troubleType) {
             case Constant.TROUBLE_TYPE_STIR:
-                return new String[]{"1", "搅拌电机异常"};
+                errorMessage = context.getString(R.string.trouble_info_stir);
+                break;
             case Constant.TROUBLE_TYPE_OUTLET:
-                return new String[]{"2", "排料口未关闭"};
+                errorMessage = context.getString(R.string.trouble_info_outlet);
+                break;
             case Constant.TROUBLE_TYPE_OBSERVE:
-                return new String[]{"3", "观察口未关闭"};
+                errorMessage = context.getString(R.string.trouble_info_observe);
+                break;
             case Constant.TROUBLE_TYPE_INLET:
-                return new String[]{"4", "投入口异常"};
-            case Constant.TROUBLE_TYPE_WEIGH:
-                return new String[]{"6", "称重异常"};
-            case Constant.TROUBLE_TYPE_HUMIDITY:
-                return new String[]{"7", "湿度异常"};
+                errorMessage = context.getString(R.string.trouble_info_inlet);
+                break;
             case Constant.TROUBLE_TYPE_HEATING_MAX:
-                return new String[]{"110","加热异常,温度太高"};
             case Constant.TROUBLE_TYPE_HEATING_MIN:
-                return new String[]{"111","加热异常,温度太低"};
+                errorMessage = context.getString(R.string.trouble_info_heating);
+                break;
+            case Constant.TROUBLE_TYPE_WEIGH:
+                errorMessage = context.getString(R.string.trouble_info_weigh);
+                break;
+            case Constant.TROUBLE_TYPE_HUMIDITY:
+                errorMessage = context.getString(R.string.trouble_info_humidity);
+                break;
             case Constant.TROUBLE_TYPE_WIND_PRESSURE:
-                return new String[]{"8","风压异常,请确认过滤网"};
+                errorMessage = context.getString(R.string.trouble_info_wind_pressure);
+                break;
             case Constant.TROUBLE_TYPE_STIR_ERROR:
-                return new String[]{"9","搅拌异常"};
-            // 其他故障类型依次补充
+                errorMessage = context.getString(R.string.trouble_info_stir_error);
+                break;
             default:
-                return new String[]{"0", "异常解除"};
+                errorMessage = context.getString(R.string.have_trouble);
         }
+
+        return new String[]{errorCode, errorMessage};
     }
 
     /**
