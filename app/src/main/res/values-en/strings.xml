@@ -150,7 +150,7 @@
     <string name="dehumidifier">Dryer</string>
     <string name="air_humidity">Air humidity</string>
     <string name="light">Light</string>
-    <string name="inlet_sensor">Inlet sensor(O,C,D)</string>
+    <string name="inlet_sensor">Inlet sensor(O,C,D)</string>0
     <string name="inlet_button">Inlet button</string>
     <string name="measuring">Safety door</string>
     <string name="outlet">Outlet</string>

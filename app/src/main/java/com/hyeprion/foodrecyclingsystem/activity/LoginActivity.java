@@ -2,6 +2,7 @@ package com.hyeprion.foodrecyclingsystem.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -541,6 +542,39 @@ public class LoginActivity extends BaseActivity<ActivityLogin2Binding> {
                     isLogging = true;
                     accountVerification(Constant.HTTP_LOGIN_TYPE_ADMIN);
 
+                    return;
+                }
+
+                // 新增"123"登录验证逻辑
+                String userId = viewBinding.etName.getText().toString();
+                String userPw = viewBinding.etPw.getText().toString();
+                if (userId.equals("123") && userPw.equals("123")) {
+                    // 构造假数据
+                    String fakeWeight = "1.23"; // 假重量数据
+                    String fakeSystemNo = "05400007"; // 假设备编号
+                    String url = "http://14.63.221.64:28080/?api/new_api.php?type=2&weight=" + fakeWeight + "&systemNo=" + fakeSystemNo;
+
+                    // 提交数据到接口
+                    OkGo.<String>get(url)
+                            .tag(this)
+                            .execute(new StringCallback() {
+                                @Override
+                                public void onSuccess(Response<String> response) {
+                                    // 提交成功后跳转到目标网页
+                                    Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                                    startActivity(webIntent);
+                                    isLogging = false;
+                                }
+
+                                @Override
+                                public void onError(Response<String> response) {
+                                    super.onError(response);
+                                    // 提交失败也跳转（按需求可改为提示错误）
+                                    Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                                    startActivity(webIntent);
+                                    isLogging = false;
+                                }
+                            });
                     return;
                 }
 

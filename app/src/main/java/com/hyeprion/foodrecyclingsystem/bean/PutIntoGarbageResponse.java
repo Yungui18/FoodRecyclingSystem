@@ -9,7 +9,7 @@ public class PutIntoGarbageResponse implements Serializable {
     /**
      * 投入垃圾累积量
      */
-    private float weight;
+    private double weight;
     /**
      * 设备编码
      */
@@ -22,7 +22,7 @@ public class PutIntoGarbageResponse implements Serializable {
     public PutIntoGarbageResponse() {
     }
 
-    public PutIntoGarbageResponse(float weight, String systemNo, String loginId) {
+    public PutIntoGarbageResponse(double weight, String systemNo, String loginId) {
         this.weight = weight;
         this.systemNo = systemNo;
         this.loginId = loginId;
@@ -32,7 +32,7 @@ public class PutIntoGarbageResponse implements Serializable {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

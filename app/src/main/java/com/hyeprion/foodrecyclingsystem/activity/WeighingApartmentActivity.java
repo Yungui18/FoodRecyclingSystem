@@ -1,6 +1,7 @@
 package com.hyeprion.foodrecyclingsystem.activity;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.alibaba.fastjson.JSON;
@@ -99,6 +100,34 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
     }
 
     private void sendWeight() {
+//        //  参数校验
+//        if (TextUtils.isEmpty(MyApplication.deviceId)) {
+//            LogUtils.e("设备编码为空，终止请求");
+//            ToastUtils.showShort("设备编码异常");
+//            return;
+//        }
+//        if (inletWeight <= 0) {
+//            LogUtils.e("重量异常: " + inletWeight);
+//            ToastUtils.showShort("重量数据错误");
+//            return;
+//        }
+//        // 校验登录参数
+//        if (MyApplication.loginType.equals(getString(R.string.login_type_pw)) &&
+//                (TextUtils.isEmpty(MyApplication.loginId) || TextUtils.isEmpty(MyApplication.loginPW))) {
+//            LogUtils.e("账号或密码为空");
+//            ToastUtils.showShort("登录信息不完整");
+//            return;
+//        }
+//        if (MyApplication.loginType.equals(getString(R.string.login_type_RFID)) &&
+//                TextUtils.isEmpty(MyApplication.cardNo)) {
+//            LogUtils.e("卡号为空");
+//            ToastUtils.showShort("RFID卡号异常");
+//            return;
+//        }
+
+        // 格式化重量参数（避免科学计数法）
+        String weightStr = String.format("%.2f", inletWeight);
+
         HttpParams httpParams = new HttpParams();
         httpParams.put(Constant.HTTP_PARAMS_TYPE, Constant.HTTP_PARAMS_TYPE_PUT_INTO_RUBBISH);
         httpParams.put(Constant.HTTP_PARAMS_SYSTEM_NO, MyApplication.deviceId);// 设备编码
@@ -111,6 +140,7 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
             httpParams.put(Constant.HTTP_PARAMS_CARD_NO, MyApplication.cardNo);
             httpParams.put(Constant.HTTP_PARAMS_LOGIN_TYPE, Constant.HTTP_LOGIN_TYPE_RFID);
         }
+        
 
         OkGo.<String>post(Constant.IP)
                 .params(httpParams)
@@ -127,11 +157,12 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
                             PutIntoGarbageResponse putIntoGarbageResponse = JSON.parseObject(res, PutIntoGarbageResponse.class);
                             //正常：”weight”:累积量,”systemNo”:”设备编码”,”loginId”:”几幢几号”
                             Intent intent = new Intent(mActivity, WeighingCumulantApartmentActivity.class);
-                            intent.putExtra("now_weight", inletWeight + "");
+                            intent.putExtra("now_weight", weightStr);
                             intent.putExtra("total_weight", putIntoGarbageResponse.getWeight() + "");
                             startActivity(intent);
                             mActivity.finish();
-                        } catch (JSONException jsonException) {
+                        } catch (JSONException e) {
+                            LogUtils.e("JSON解析失败", e);
                             ToastUtils.showShort(R.string.please_retry);
                         }
                     }

@@ -1,5 +1,8 @@
 package com.hyeprion.foodrecyclingsystem.util;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
+
 import com.hyeprion.foodrecyclingsystem.R;
 import com.hyeprion.foodrecyclingsystem.base.MyApplication;
 import com.hyeprion.foodrecyclingsystem.bean.TimesInlet;
@@ -12,6 +15,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class GreenDaoUtil {
     private static GreenDaoUtil greenDaoUtil;
@@ -163,6 +167,25 @@ public class GreenDaoUtil {
     }
 
     /**
+     * 强制获取英文资源字符串
+     * @param resId 字符串资源ID（如R.string.trouble_info_stir）
+     * @return 英文
+     */
+    private String getEnglishString(int resId) {
+        try {
+            Resources resources = MyApplication.getInstance().getResources();
+            Configuration config = new Configuration(resources.getConfiguration());
+            // 强制设置为英文 locale
+            config.setLocale(Locale.ENGLISH);
+            // 根据英文配置获取资源
+            return resources.getString(resId, config);
+        } catch (Exception e) {
+            // 异常时返回默认文案（避免崩溃）
+            return MyApplication.getInstance().getString(resId);
+        }
+    }
+
+    /**
      * 插入故障信息到故障表
      *
      * @return String
@@ -170,59 +193,62 @@ public class GreenDaoUtil {
     public void insertTrouble(int type) {
         TroubleLog troubleLog = new TroubleLog();
         troubleLog.setTime(TimeUtil.getDateSToString());
-        // 存储当前语言的故障描述（已适配多语言）
+        // 存储英文故障描述
         String troubleMessage = "";
         switch (type) {
             case 0:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_remove);
+                // 替换为英文资源获取
+                troubleMessage = getEnglishString(R.string.trouble_remove);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_REMOVE);
                 break;
             case 1:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_stir);
+                troubleMessage = getEnglishString(R.string.trouble_info_stir);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_STIR);
                 break;
             case 2:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_outlet);
+                troubleMessage = getEnglishString(R.string.trouble_info_outlet);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_OUTLET);
                 break;
             case 3:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_safety_door);
+                troubleMessage = getEnglishString(R.string.trouble_info_safety_door);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_OBSERVE);
                 break;
             case 4:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_inlet);
+                troubleMessage = getEnglishString(R.string.trouble_info_inlet);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_INLET);
                 break;
             case 110:
             case 111:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_heating) + ":F" +
+                // 加热异常文案：拼接英文描述 + 温度值
+                String heatingBase = getEnglishString(R.string.trouble_info_heating);
+                troubleMessage = heatingBase + ":F" +
                         PortControlUtil.getInstance().getPortStatus().getHeaterTemperature1()
                         + " B" + PortControlUtil.getInstance().getPortStatus().getHeaterTemperature2();
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(type == 110 ? Constant.TROUBLE_TYPE_HEATING_MAX : Constant.TROUBLE_TYPE_HEATING_MIN);
                 break;
             case 6:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_weigh);
+                troubleMessage = getEnglishString(R.string.trouble_info_weigh);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_WEIGH);
                 break;
             case 7:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_humidity);
+                troubleMessage = getEnglishString(R.string.trouble_info_humidity);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_HUMIDITY);
                 break;
             case 8:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_wind_pressure);
+                troubleMessage = getEnglishString(R.string.trouble_info_wind_pressure);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_WIND_PRESSURE);
                 break;
             case 9:
-                troubleMessage = ActivityUtil.getInstance().getActivity().getString(R.string.trouble_info_stir_error);
+                troubleMessage = getEnglishString(R.string.trouble_info_stir_error);
                 troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_STIR_ERROR);
                 break;
@@ -233,13 +259,13 @@ public class GreenDaoUtil {
         // 1. 获取故障代码（保持原逻辑）
         String[] errorInfo = HTTPServerUtil.getErrorInfoByType(troubleLog.getTroubleType());
         int errorCode = Integer.parseInt(errorInfo[0]);
-        // 2. 直接使用当前语言的故障描述作为errorMessage
+        // 2. // 直接使用英文的故障描述作为errorMessage
         String errorMessage = troubleMessage;
         // 3. 获取LED值（保持原逻辑）
         int ledValue = HTTPServerUtil.getCurrentLedValue();
         // 4. 设备编号（保持原逻辑）
         String systemNo = MyApplication.deviceId;
-        // 5. 发送到API（此时errorMessage已适配当前语言）
+        // 5. 发送到API（此时errorMessage// 直接使用英文）
         HTTPServerUtil.sendErrorInfo(errorCode, errorMessage, ledValue, systemNo);
     }
 
