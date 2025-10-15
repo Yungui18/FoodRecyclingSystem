@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.hyeprion.foodrecyclingsystem.R;
 import com.hyeprion.foodrecyclingsystem.base.BaseActivity;
 import com.hyeprion.foodrecyclingsystem.base.MyApplication;
@@ -39,7 +40,6 @@ public class WeighingCumulantApartmentActivity extends BaseActivity<ActivityWeig
             viewBinding.iv2.setImageResource(R.mipmap.weight_lbs);
         }
 
-
         nowWeight = getIntent().getStringExtra("now_weight") + "";
         nowWeight = MyApplication.adminParameterBean.isWeightDecimalShow()?nowWeight:
                 String.valueOf(DecimalFormatUtil.DecimalFormatInt(Float.parseFloat(nowWeight)));
@@ -48,42 +48,34 @@ public class WeighingCumulantApartmentActivity extends BaseActivity<ActivityWeig
         }
         totalWeight = getIntent().getStringExtra("total_weight");
 
+        String requestInfo = getIntent().getStringExtra("request_info");
+        if (requestInfo != null && !requestInfo.isEmpty()) {
+            ToastUtils.showShort(requestInfo);
+        }
 
         if (totalWeight == null || totalWeight.equals("")) {
-            // TODO: 2023/2/28 从数据库查询本月总投入重量
-//            totalWeight = "252";
             totalWeight = GreenDaoUtil.getInstance().getMonthInletWeight();
             viewBinding.groupWeightingCumulant.setVisibility(View.GONE);
         }
         totalWeight = String.valueOf(MyApplication.adminParameterBean.isWeightDecimalShow()?
                 DecimalFormatUtil.DecimalFormatThree(Float.parseFloat(totalWeight)):
                 DecimalFormatUtil.DecimalFormatInt(Float.parseFloat(totalWeight)));
-        viewBinding.tvWeighingThisTime.setText(/*String.format(getString(R.string.this_time_plate_weighing),*/ nowWeight + "");
+        viewBinding.tvWeighingThisTime.setText(nowWeight + "");
         LogUtils.e("total_weight" + getIntent().getStringExtra("total_weight"));
-        viewBinding.tvWeightingCumulant.setText(/*String.format(
-                getString(R.string.monthly_cumulative_placement),*/totalWeight + "");
+        viewBinding.tvWeightingCumulant.setText(totalWeight + "");
         viewBinding.tvCountdown.setText(String.format(getString(R.string.countdown), "10"));
         countDown30S();
     }
 
     @Override
     protected void initListener() {
-//        viewBinding.btnConfirm.setOnClickListener(this::onClick);
     }
 
     @Override
     public void onClick(View view) {
-//        if (view.getId() == R.id.btn_confirm) {
-//            this.finish();
-//        }
     }
 
-
-    /**
-     * 30S倒计时，结束关闭页面跳转 主界面{@link LoginActivity}
-     */
     private void countDown30S() {
-        // 倒计时总时长
         long millisInFuture = 10 * Constant.second;
         myCountDownTimer = new MyCountDownTimer(millisInFuture, Constant.second) {
             @Override

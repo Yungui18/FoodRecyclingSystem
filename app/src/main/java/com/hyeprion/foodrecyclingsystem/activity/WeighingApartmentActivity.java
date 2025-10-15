@@ -37,8 +37,6 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
     protected void initView() {
         MyApplication.soundPlayUtils.loadMedia(Constant.music_4_weighing);
         baseHandler.postDelayed(() -> {
-            // 关门时重量 - 开门前重量 = 本次投入量
-
             SaveToSdUtil.savePortDataToSD("WeighingApartmentActivity feeding after weight:" +
                     PortControlUtil.getInstance().getPortStatus().getChooseUseWeighing(), 2);
             float nowWeight = (PortControlUtil.getInstance().getPortStatus().getChooseUseWeighing() -
@@ -50,7 +48,6 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
             LogUtils.e("WeighingApartmentActivity feeding after weight:" +
                     PortControlUtil.getInstance().getPortStatus().getChooseUseWeighing() + "\n"
                     + "WeighingApartmentActivity feeding weight:" + nowWeight);
-            // 每次投入量的累积
             MyApplication.adminParameterBean.setInletLimitedTotalAccumulation(DecimalFormatUtil.DecimalFormatThree(
                     (Float.parseFloat(MyApplication.adminParameterBean.getInletLimitedTotalAccumulation()) + nowWeight)) + "");
             SharedPreFerUtil.saveObj(Constant.ADMIN_PARAMETER_FILENAME, Constant.ADMIN_PARAMETER_KEY,
@@ -58,15 +55,7 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
 
             GreenDaoUtil.getInstance().insertTimesInlet(nowWeight, MyApplication.loginType);
 
-            if (MyApplication.adminParameterBean.getLoginMode().equals(Constant.NONE)) {
-                startMotor();
-
-                Intent intent = new Intent(mActivity, WeighingCumulantApartmentActivity.class);
-                intent.putExtra("now_weight", nowWeight + "");
-                startActivity(intent);
-                mActivity.finish();
-                return;
-            }
+            // 无论什么模式都发送请求到服务器
             sendWeight();
         }, Integer.parseInt(MyApplication.adminParameterBean.getFeedingAfterWeightTime()) * Constant.second);
     }
@@ -85,54 +74,28 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
         if (PortControlUtil.getInstance().getPortStatus().getObserveDoorStatus() == 0) {
             return;
         }
-        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater1AutomaticCommands()); //加热1自动
-        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater2AutomaticCommands()); //加热2自动
+        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater1AutomaticCommands());
+        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater2AutomaticCommands());
 
-
-        // 打开搅拌电机命令
         PortControlUtil.getInstance().sendCommands(PortConstants.STIR_FORWARD);
-        PortControlUtil.getInstance().sendCommands(PortConstants.FAN1_AUTOMATIC); //风扇启动
-        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater1AutomaticCommands()); //加热1自动
-        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater2AutomaticCommands()); //加热2自动
-        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getDehumidificationAutomaticCommands()); //烘干机自动
-        // 绿灯常亮
-
+        PortControlUtil.getInstance().sendCommands(PortConstants.FAN1_AUTOMATIC);
+        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater1AutomaticCommands());
+        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getHeater2AutomaticCommands());
+        PortControlUtil.getInstance().sendCommands(PortControlUtil.getInstance().getDehumidificationAutomaticCommands());
     }
 
     private void sendWeight() {
-//        //  参数校验
-//        if (TextUtils.isEmpty(MyApplication.deviceId)) {
-//            LogUtils.e("设备编码为空，终止请求");
-//            ToastUtils.showShort("设备编码异常");
-//            return;
-//        }
-//        if (inletWeight <= 0) {
-//            LogUtils.e("重量异常: " + inletWeight);
-//            ToastUtils.showShort("重量数据错误");
-//            return;
-//        }
-//        // 校验登录参数
-//        if (MyApplication.loginType.equals(getString(R.string.login_type_pw)) &&
-//                (TextUtils.isEmpty(MyApplication.loginId) || TextUtils.isEmpty(MyApplication.loginPW))) {
-//            LogUtils.e("账号或密码为空");
-//            ToastUtils.showShort("登录信息不完整");
-//            return;
-//        }
-//        if (MyApplication.loginType.equals(getString(R.string.login_type_RFID)) &&
-//                TextUtils.isEmpty(MyApplication.cardNo)) {
-//            LogUtils.e("卡号为空");
-//            ToastUtils.showShort("RFID卡号异常");
-//            return;
-//        }
-
-        // 格式化重量参数（避免科学计数法）
         String weightStr = String.format("%.2f", inletWeight);
 
         HttpParams httpParams = new HttpParams();
         httpParams.put(Constant.HTTP_PARAMS_TYPE, Constant.HTTP_PARAMS_TYPE_PUT_INTO_RUBBISH);
-        httpParams.put(Constant.HTTP_PARAMS_SYSTEM_NO, MyApplication.deviceId);// 设备编码
-        httpParams.put(Constant.HTTP_PARAMS_WEIGHT, inletWeight); // 本次重量
-        if (MyApplication.loginType.equals(getString(R.string.login_type_pw))) {
+        httpParams.put(Constant.HTTP_PARAMS_SYSTEM_NO, MyApplication.deviceId);
+        httpParams.put(Constant.HTTP_PARAMS_WEIGHT, inletWeight);
+
+        // 为NONE模式添加特殊标识
+        if (MyApplication.adminParameterBean.getLoginMode().equals(Constant.NONE)) {
+            httpParams.put(Constant.HTTP_PARAMS_LOGIN_TYPE, "NONE");
+        } else if (MyApplication.loginType.equals(getString(R.string.login_type_pw))) {
             httpParams.put(Constant.HTTP_PARAMS_LOGIN_ID, MyApplication.loginId);
             httpParams.put(Constant.HTTP_PARAMS_LOGIN_PW, MyApplication.loginPW);
             httpParams.put(Constant.HTTP_PARAMS_LOGIN_TYPE, Constant.HTTP_LOGIN_TYPE_ID);
@@ -140,7 +103,8 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
             httpParams.put(Constant.HTTP_PARAMS_CARD_NO, MyApplication.cardNo);
             httpParams.put(Constant.HTTP_PARAMS_LOGIN_TYPE, Constant.HTTP_LOGIN_TYPE_RFID);
         }
-        
+
+        String requestInfo = httpParams.toString();
 
         OkGo.<String>post(Constant.IP)
                 .params(httpParams)
@@ -155,10 +119,10 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
                         LogUtils.e(res);
                         try {
                             PutIntoGarbageResponse putIntoGarbageResponse = JSON.parseObject(res, PutIntoGarbageResponse.class);
-                            //正常：”weight”:累积量,”systemNo”:”设备编码”,”loginId”:”几幢几号”
                             Intent intent = new Intent(mActivity, WeighingCumulantApartmentActivity.class);
                             intent.putExtra("now_weight", weightStr);
                             intent.putExtra("total_weight", putIntoGarbageResponse.getWeight() + "");
+                            intent.putExtra("request_info", requestInfo);
                             startActivity(intent);
                             mActivity.finish();
                         } catch (JSONException e) {
@@ -170,20 +134,11 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
-                        sendWeight();
-                       /* netRetryTimes++;
-                        if (netRetryTimes < 3) {
-                            sendWeight();
-                        } else {
-                            netRetryTimes = 0;
-                            runOnUiThread(() -> DialogManage.getDialog2SDismiss(WeighingApartmentActivity.this, getString(R.string.please_check_net_and_retry)).show());
-                            new Handler(WeighingApartmentActivity.this.getMainLooper()).postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    WeighingApartmentActivity.this.finish();
-                                }
-                            },3*Constant.second);
-                        }*/
+                        Intent intent = new Intent(mActivity, WeighingCumulantApartmentActivity.class);
+                        intent.putExtra("now_weight", weightStr);
+                        intent.putExtra("request_info", requestInfo);
+                        startActivity(intent);
+                        mActivity.finish();
                     }
                 });
     }

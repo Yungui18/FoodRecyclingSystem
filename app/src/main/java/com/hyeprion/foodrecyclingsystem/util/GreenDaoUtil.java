@@ -1,5 +1,6 @@
 package com.hyeprion.foodrecyclingsystem.util;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
@@ -173,12 +174,14 @@ public class GreenDaoUtil {
      */
     private String getEnglishString(int resId) {
         try {
-            Resources resources = MyApplication.getInstance().getResources();
+            Context appContext = MyApplication.getInstance();
+            Resources resources = appContext.getResources();
             Configuration config = new Configuration(resources.getConfiguration());
             // 强制设置为英文 locale
             config.setLocale(Locale.ENGLISH);
+            Context englishContext = appContext.createConfigurationContext(config);
             // 根据英文配置获取资源
-            return resources.getString(resId, config);
+            return englishContext.getString(resId);
         } catch (Exception e) {
             // 异常时返回默认文案（避免崩溃）
             return MyApplication.getInstance().getString(resId);
