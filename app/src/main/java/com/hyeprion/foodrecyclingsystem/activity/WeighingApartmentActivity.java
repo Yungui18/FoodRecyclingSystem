@@ -32,11 +32,32 @@ import com.lzy.okgo.model.Response;
 public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApartment2Binding> {
     //投入垃圾之前的重量
     private float inletWeight;
+    // 防护标记
+    private boolean isDelayTaskSubmitted = false; // 延迟任务是否已提交
+    private boolean isWeightRequestSending = false; // 重量上传请求是否正在执行
+    private boolean isJumpCompleted = false; // 是否已跳转至完成页面
 
     @Override
     protected void initView() {
         MyApplication.soundPlayUtils.loadMedia(Constant.music_4_weighing);
+
+        // 防止延迟任务重复提交
+        if (isDelayTaskSubmitted) {
+            LogUtils.e("WeighingApartmentActivity: 延迟任务已提交，跳过本次");
+            return;
+        }
+        isDelayTaskSubmitted = true;
+
         baseHandler.postDelayed(() -> {
+            // 获取PortStatus前判空，避免空指针导致逻辑异常
+            PortControlUtil portControl = PortControlUtil.getInstance();
+            if (portControl == null || portControl.getPortStatus() == null) {
+                LogUtils.e("WeighingApartmentActivity: PortControl/PortStatus 未初始化");
+                // 跳转至完成页面（异常场景兜底）
+                safeJumpToCompletedPage("0", "", "");
+                return;
+            }
+
             SaveToSdUtil.savePortDataToSD("WeighingApartmentActivity feeding after weight:" +
                     PortControlUtil.getInstance().getPortStatus().getChooseUseWeighing(), 2);
             float nowWeight = (PortControlUtil.getInstance().getPortStatus().getChooseUseWeighing() -
@@ -48,8 +69,14 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
             LogUtils.e("WeighingApartmentActivity feeding after weight:" +
                     PortControlUtil.getInstance().getPortStatus().getChooseUseWeighing() + "\n"
                     + "WeighingApartmentActivity feeding weight:" + nowWeight);
-            MyApplication.adminParameterBean.setInletLimitedTotalAccumulation(DecimalFormatUtil.DecimalFormatThree(
-                    (Float.parseFloat(MyApplication.adminParameterBean.getInletLimitedTotalAccumulation()) + nowWeight)) + "");
+
+            try {
+                MyApplication.adminParameterBean.setInletLimitedTotalAccumulation(DecimalFormatUtil.DecimalFormatThree(
+                        (Float.parseFloat(MyApplication.adminParameterBean.getInletLimitedTotalAccumulation()) + nowWeight)) + "");
+            } catch (NumberFormatException e) {
+                LogUtils.e("累计重量计算失败: " + e.getMessage());
+                MyApplication.adminParameterBean.setInletLimitedTotalAccumulation(nowWeight + "");
+            }
             SharedPreFerUtil.saveObj(Constant.ADMIN_PARAMETER_FILENAME, Constant.ADMIN_PARAMETER_KEY,
                     JSON.toJSONString(MyApplication.adminParameterBean));
 
@@ -59,6 +86,25 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
             sendWeight();
         }, Integer.parseInt(MyApplication.adminParameterBean.getFeedingAfterWeightTime()) * Constant.second);
     }
+
+    /**
+     * 安全跳转至称重完成页面（防止重复跳转）
+     */
+    private void safeJumpToCompletedPage(String nowWeight, String totalWeight, String requestInfo) {
+        if (isJumpCompleted) {
+            LogUtils.e("WeighingApartmentActivity: 已跳转至完成页面，跳过本次");
+            return;
+        }
+        isJumpCompleted = true;
+
+        Intent intent = new Intent(mActivity, WeighingCumulantApartmentActivity.class);
+        intent.putExtra("now_weight", nowWeight);
+        intent.putExtra("total_weight", totalWeight);
+        intent.putExtra("request_info", requestInfo);
+        startActivity(intent);
+        mActivity.finish();
+    }
+
 
     @Override
     protected void initListener() {
@@ -85,6 +131,13 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
     }
 
     private void sendWeight() {
+        // 防止请求重复发送
+        if (isWeightRequestSending) {
+            LogUtils.e("WeighingApartmentActivity: 重量上传请求正在执行，跳过本次");
+            return;
+        }
+        isWeightRequestSending = true;
+
         String weightStr = String.format("%.2f", inletWeight);
 
         HttpParams httpParams = new HttpParams();
@@ -117,29 +170,43 @@ public class WeighingApartmentActivity extends BaseActivity<ActivityWeighingApar
 
                         String res = response.body();
                         LogUtils.e(res);
+                        String totalWeight = "";
                         try {
-                            PutIntoGarbageResponse putIntoGarbageResponse = JSON.parseObject(res, PutIntoGarbageResponse.class);
-                            Intent intent = new Intent(mActivity, WeighingCumulantApartmentActivity.class);
-                            intent.putExtra("now_weight", weightStr);
-                            intent.putExtra("total_weight", putIntoGarbageResponse.getWeight() + "");
-                            intent.putExtra("request_info", requestInfo);
-                            startActivity(intent);
-                            mActivity.finish();
+                            if (!TextUtils.isEmpty(res)) {
+                                PutIntoGarbageResponse putIntoGarbageResponse = JSON.parseObject(res, PutIntoGarbageResponse.class);
+                                totalWeight = putIntoGarbageResponse.getWeight() + "";
+                            }
                         } catch (JSONException e) {
                             LogUtils.e("JSON解析失败", e);
                             ToastUtils.showShort(R.string.please_retry);
+                        } finally {
+                            // 安全跳转（确保只执行一次）
+                            safeJumpToCompletedPage(weightStr, totalWeight, requestInfo);
+                            isWeightRequestSending = false; // 重置请求状态
                         }
                     }
 
                     @Override
                     public void onError(Response<String> response) {
                         super.onError(response);
-                        Intent intent = new Intent(mActivity, WeighingCumulantApartmentActivity.class);
-                        intent.putExtra("now_weight", weightStr);
-                        intent.putExtra("request_info", requestInfo);
-                        startActivity(intent);
-                        mActivity.finish();
+                        // 安全跳转（确保只执行一次）
+                        safeJumpToCompletedPage(String.format("%.2f", inletWeight), "", httpParams.toString());
+                        isWeightRequestSending = false; // 重置请求状态
                     }
                 });
+    }
+
+    // 页面销毁时清理资源
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 移除未执行的延迟任务，避免页面销毁后触发逻辑
+        if (baseHandler != null) {
+            baseHandler.removeCallbacksAndMessages(null);
+        }
+        // 重置防护标记
+        isDelayTaskSubmitted = false;
+        isWeightRequestSending = false;
+        isJumpCompleted = false;
     }
 }

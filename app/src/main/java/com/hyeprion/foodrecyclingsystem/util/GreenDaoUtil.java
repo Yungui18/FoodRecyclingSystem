@@ -202,27 +202,22 @@ public class GreenDaoUtil {
             case 0:
                 // 替换为英文资源获取
                 troubleMessage = getEnglishString(R.string.trouble_remove);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_REMOVE);
                 break;
             case 1:
                 troubleMessage = getEnglishString(R.string.trouble_info_stir);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_STIR);
                 break;
             case 2:
                 troubleMessage = getEnglishString(R.string.trouble_info_outlet);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_OUTLET);
                 break;
             case 3:
                 troubleMessage = getEnglishString(R.string.trouble_info_safety_door);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_OBSERVE);
                 break;
             case 4:
                 troubleMessage = getEnglishString(R.string.trouble_info_inlet);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_INLET);
                 break;
             case 110:
@@ -232,43 +227,38 @@ public class GreenDaoUtil {
                 troubleMessage = heatingBase + ":F" +
                         PortControlUtil.getInstance().getPortStatus().getHeaterTemperature1()
                         + " B" + PortControlUtil.getInstance().getPortStatus().getHeaterTemperature2();
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(type == 110 ? Constant.TROUBLE_TYPE_HEATING_MAX : Constant.TROUBLE_TYPE_HEATING_MIN);
                 break;
             case 6:
                 troubleMessage = getEnglishString(R.string.trouble_info_weigh);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_WEIGH);
                 break;
             case 7:
                 troubleMessage = getEnglishString(R.string.trouble_info_humidity);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_HUMIDITY);
                 break;
             case 8:
                 troubleMessage = getEnglishString(R.string.trouble_info_wind_pressure);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_WIND_PRESSURE);
                 break;
             case 9:
                 troubleMessage = getEnglishString(R.string.trouble_info_stir_error);
-                troubleLog.setTrouble(troubleMessage);
                 troubleLog.setTroubleType(Constant.TROUBLE_TYPE_STIR_ERROR);
                 break;
         }
         EventBus.getDefault().post(troubleLog);
         MyApplication.getInstance().getDaoSession().getTroubleLogDao().insert(troubleLog);
 
-        // 1. 获取故障代码（保持原逻辑）
+        // 1. 获取故障代码
         String[] errorInfo = HTTPServerUtil.getErrorInfoByType(troubleLog.getTroubleType());
         int errorCode = Integer.parseInt(errorInfo[0]);
-        // 2. // 直接使用英文的故障描述作为errorMessage
+        // 2. 直接使用英文的故障描述作为errorMessage
         String errorMessage = troubleMessage;
-        // 3. 获取LED值（保持原逻辑）
+        // 3. 获取LED值
         int ledValue = HTTPServerUtil.getCurrentLedValue();
-        // 4. 设备编号（保持原逻辑）
+        // 4. 设备编号
         String systemNo = MyApplication.deviceId;
-        // 5. 发送到API（此时errorMessage// 直接使用英文）
+        // 5. 发送到API（此时errorMessage直接使用英文）
         HTTPServerUtil.sendErrorInfo(errorCode, errorMessage, ledValue, systemNo);
     }
 

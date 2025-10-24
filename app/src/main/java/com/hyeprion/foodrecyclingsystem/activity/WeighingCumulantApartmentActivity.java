@@ -1,6 +1,7 @@
 package com.hyeprion.foodrecyclingsystem.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -40,30 +41,38 @@ public class WeighingCumulantApartmentActivity extends BaseActivity<ActivityWeig
             viewBinding.iv2.setImageResource(R.mipmap.weight_lbs);
         }
 
-        nowWeight = getIntent().getStringExtra("now_weight") + "";
-        nowWeight = MyApplication.adminParameterBean.isWeightDecimalShow()?nowWeight:
-                String.valueOf(DecimalFormatUtil.DecimalFormatInt(Float.parseFloat(nowWeight)));
-        if (Float.parseFloat(nowWeight) <= 0) {
+        // 优化nowWeight计算
+        String rawNowWeight = getIntent().getStringExtra("now_weight");
+        // 处理空值和格式化
+        if (TextUtils.isEmpty(rawNowWeight)) {
             nowWeight = "0";
+        } else {
+            float nowWeightValue = Float.parseFloat(rawNowWeight);
+            nowWeightValue = Math.max(nowWeightValue, 0); // 确保非负
+            // 一次性完成格式化
+            nowWeight = MyApplication.adminParameterBean.isWeightDecimalShow()
+                    ? String.valueOf(nowWeightValue)
+                    : String.valueOf(DecimalFormatUtil.DecimalFormatInt(nowWeightValue));
         }
-        totalWeight = getIntent().getStringExtra("total_weight");
 
         String requestInfo = getIntent().getStringExtra("request_info");
-        if (requestInfo != null && !requestInfo.isEmpty()) {
-            ToastUtils.showShort(requestInfo);
-        }
 
-        if (totalWeight == null || totalWeight.equals("")) {
+        // 优化totalWeight计算
+        totalWeight = getIntent().getStringExtra("total_weight");
+        if (TextUtils.isEmpty(totalWeight)) {
             totalWeight = GreenDaoUtil.getInstance().getMonthInletWeight();
             viewBinding.groupWeightingCumulant.setVisibility(View.GONE);
         }
-        totalWeight = String.valueOf(MyApplication.adminParameterBean.isWeightDecimalShow()?
-                DecimalFormatUtil.DecimalFormatThree(Float.parseFloat(totalWeight)):
-                DecimalFormatUtil.DecimalFormatInt(Float.parseFloat(totalWeight)));
+        // 一次性完成格式化
+        float totalWeightValue = Float.parseFloat(totalWeight);
+        totalWeight = MyApplication.adminParameterBean.isWeightDecimalShow()
+                ? String.valueOf(DecimalFormatUtil.DecimalFormatThree(totalWeightValue))
+                : String.valueOf(DecimalFormatUtil.DecimalFormatInt(totalWeightValue));
+
         viewBinding.tvWeighingThisTime.setText(nowWeight + "");
         LogUtils.e("total_weight" + getIntent().getStringExtra("total_weight"));
         viewBinding.tvWeightingCumulant.setText(totalWeight + "");
-        viewBinding.tvCountdown.setText(String.format(getString(R.string.countdown), "10"));
+        viewBinding.tvCountdown.setText(String.format(getString(R.string.countdown), "9"));
         countDown30S();
     }
 
@@ -80,12 +89,13 @@ public class WeighingCumulantApartmentActivity extends BaseActivity<ActivityWeig
         myCountDownTimer = new MyCountDownTimer(millisInFuture, Constant.second) {
             @Override
             public void onTick(long millisUntilFinished) {
-                viewBinding.tvCountdown.setText(String.format(getString(R.string.countdown), (millisUntilFinished / Constant.second) + ""));
+                long seconds = millisUntilFinished / Constant.second - 1;
+                viewBinding.tvCountdown.setText(String.format(getString(R.string.countdown), seconds + ""));
             }
 
             @Override
             public void onFinish() {
-                viewBinding.tvCountdown.setText(String.format(getString(R.string.countdown), "1"));
+                viewBinding.tvCountdown.setText(String.format(getString(R.string.countdown), "0"));
                 WeighingCumulantApartmentActivity.this.finish();
             }
         };
